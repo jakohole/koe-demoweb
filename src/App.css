@@ -1,10 +1,17 @@
+body {
+  background-image: url('assets/Keen_BG_Normal.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
-
+h1 {
+  color: white;
+}
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -39,4 +46,77 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.parallax {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 1px;
+}
+
+.parallax-group {
+  position: relative;
+  height: 100vh;
+  transform-style: preserve-3d;
+}
+
+.parallax-group > * {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transform-origin: center center;
+}
+
+.parallax-group-introduction {
+  transform: translateZ(-1px) scale(2);
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  padding: 10rem;
+}
+
+.app-header .logo {
+  height: 4em;
+  margin-right: 1rem;
+}
+
+.app-body {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-card {
+  padding: 2em;
+  background-color: #ffffff;
+  border-radius: 1em;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1);
+}
+
+.app-card button {
+  margin-right: 1em;
+}
+
+.app-card p {
+  margin: 1em 0;
 }
