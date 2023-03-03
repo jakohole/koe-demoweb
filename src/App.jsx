@@ -1,37 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import keenLogo from './assets/keen.svg'
-import './App.css'
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import keenLogo from './assets/keen.svg';
+import IntroductionPage from './IntroductionPage';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+
+  const scrollToIntroduction = () => {
+    const introduction = document.getElementById('introduction');
+    introduction.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
-     <div
-      className="App"
-      style={{
-        backgroundImage: 'url(/assets/Keen_BG_Normal.jpg)',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center center',
-      }}
-    >
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={keenLogo} className="logo" alt="Vite logo" />
-        </a>
+    <div className="app-container">
+      <div className="app-header">
+        {
+          //<img src={keenLogo} className="logo" alt="Keen logo" />
+        }
+        <h1>KEEN Organizational Ethics Assessment</h1>
       </div>
-      <h1>KEEN Organisational Ethics</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      <div className="app-body">
+        <div className="app-card">
+          <button onClick={scrollToIntroduction}>Scroll to Introduction</button>
+        </div>
       </div>
+      <IntroductionPage />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
