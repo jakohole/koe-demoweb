@@ -3,7 +3,9 @@ import reactLogo from './assets/react.svg';
 import keenLogo from './assets/keen.svg';
 import IntroductionPage from './IntroductionPage';
 import './App.css';
+import './IntroductionPage.css';
 import StartButton from './assets/button_start.png';
+import SpeedTestPage from './SpeedTestPage';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -27,6 +29,7 @@ function App() {
         </div>
       </div>
       <IntroductionPage />
+      <SpeedTestPage />
     </div>
   );
 }

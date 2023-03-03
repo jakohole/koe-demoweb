@@ -2,11 +2,12 @@ body {
   background-image: url('assets/Keen_BG_Normal.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
 }
 #root {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 10rem;
   text-align: center;
 }
 h1 {
@@ -75,7 +76,8 @@ h1 {
 }
 
 h2 {
-  font-size: 3rem;
+  font-size: 2rem;
+  color: white;
 }
 
 p {
@@ -91,7 +93,8 @@ p {
 .app-header {
   display: flex;
   align-items: center;
-  padding: 10rem;
+  padding: 1rem;
+  margin-top: 2rem;
 }
 
 .app-header .logo {
@@ -107,10 +110,8 @@ p {
 }
 
 .app-card {
-  padding: 2em;
-  background-color: #ffffff;
-  border-radius: 1em;
-  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1);
+  padding: 1em;
+  margin-bottom: 18rem;
 }
 
 .app-card button {

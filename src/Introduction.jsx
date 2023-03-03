@@ -3,7 +3,7 @@ import './Introduction.css';
 
 function Introduction() {
   return (
-    <div class="box" id="introduction">
+    <div className="box" id="introduction1">
       <p>แบบประเมินชุดนี้ประกอบไปด้วยข้อคำถามทั้งหมด 2 พาร์ทหลัก ได้แก่ </p>
       <ul style={{ listStyleType: 'none' }}>
         <li>

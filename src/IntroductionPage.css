@@ -1,15 +1,22 @@
 .introduction-page-container {
   height: 100vh;
-  display: flex;
+  display: inside;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+  margin-top: 8em;
 }
-
+.speedtest-page-container {
+  height: 100vh;
+  display: inside;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  margin-top: 8em;
+}
 .scroll-to-app-button {
-  margin-top: 1em;
-  padding: 1em;
+  margin-top: 2em;
+  margin-bottom: 2em;
   background-color: #ffffff;
   border-radius: 1em;
   box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1);
