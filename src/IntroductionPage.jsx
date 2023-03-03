@@ -1,13 +1,13 @@
 import './IntroductionPage.css';
 import Introduction from './Introduction';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './App.css';
 
 function IntroductionPage() {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const navigateToNext = () => {
-    history.push('/speedtest');
+    navigate('/speedtest');
   };
 
   return (
