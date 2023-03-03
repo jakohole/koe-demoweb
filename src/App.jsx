@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg';
 import keenLogo from './assets/keen.svg';
 import IntroductionPage from './IntroductionPage';
 import './App.css';
+import StartButton from './assets/button_start.png';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -22,7 +23,7 @@ function App() {
       </div>
       <div className="app-body">
         <div className="app-card">
-          <button onClick={scrollToIntroduction}>Scroll to Introduction</button>
+          <button onClick={scrollToIntroduction}>Next</button>
         </div>
       </div>
       <IntroductionPage />

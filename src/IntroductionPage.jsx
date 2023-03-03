@@ -10,7 +10,7 @@ function IntroductionPage() {
     <div className="introduction-page-container" id="introduction">
       <Introduction />
       <button className="scroll-to-app-button" onClick={scrollToApp}>
-        Back to App
+        Next
       </button>
     </div>
   );

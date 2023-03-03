@@ -23,3 +23,9 @@
   border-radius: 1em;
   box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1);
 }
+
+.box {
+  border-radius: 10px;
+  background-color: white;
+  padding: 20px;
+}
