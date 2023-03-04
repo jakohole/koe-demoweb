@@ -6,6 +6,10 @@ import './App.css';
 import './IntroductionPage.css';
 import StartButton from './assets/button_start.png';
 import SpeedTestPage from './SpeedTestPage';
+import { Routes, Route } from 'react-router-dom';
+import { App } from './App';
+import { Introduction } from './IntroductionPage';
+import { SpeedTest } from './SpeedTestPage';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -16,22 +20,27 @@ function App() {
   };
 
   return (
-    <div className="app-container">
-      <div className="app-header">
-        {
-          //<img src={keenLogo} className="logo" alt="Keen logo" />
-        }
-        <h1>KEEN Organizational Ethics Assessment</h1>
-      </div>
-      <div className="app-body">
-        <div className="app-card">
-          <button onClick={scrollToIntroduction}>Next</button>
+    <><Routes>
+      <Route path="/" element={<App />}>
+        <Route path="/" element={<Introduction />} />
+        <Route path="/speedtestpage" element={<SpeedTest />} />
+      </Route>
+    </Routes><div className="app-container">
+        <div className="app-header">
+          {
+            //<img src={keenLogo} className="logo" alt="Keen logo" />
+          }
+          <h1>KEEN Organizational Ethics Assessment</h1>
         </div>
-      </div>
-      <IntroductionPage />
-      {//<SpeedTestPage />
-      }
-    </div>
+        <div className="app-body">
+          <div className="app-card">
+            <button onClick={scrollToIntroduction}>Next</button>
+          </div>
+        </div>
+        <IntroductionPage />
+        {//<SpeedTestPage />
+        }
+      </div></>
   );
 }
 
