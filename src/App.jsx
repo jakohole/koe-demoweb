@@ -29,7 +29,8 @@ function App() {
         </div>
       </div>
       <IntroductionPage />
-      <SpeedTestPage />
+      {//<SpeedTestPage />
+      }
     </div>
   );
 }
