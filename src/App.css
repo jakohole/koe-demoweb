@@ -4,10 +4,11 @@ body {
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
+  overflow: hidden;
 }
 #root {
-  margin: 0 auto;
-  padding: 10rem;
+  margin: auto;
+  padding-top: 5rem; /* set padding-top to the height of the logo container */
   text-align: center;
 }
 h1 {
@@ -91,10 +92,9 @@ p {
 }
 
 .app-header {
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  margin-top: 2rem;
+  position: sticky;
+  top: 0;
+  height: 10rem;
 }
 
 .app-header .logo {
@@ -120,4 +120,13 @@ p {
 
 .app-card p {
   margin: 1em 0;
+}
+
+.fixed-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
 }

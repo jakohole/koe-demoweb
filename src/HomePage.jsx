@@ -22,10 +22,11 @@ function HomePage() {
         {
           //<img src={keenLogo} className="logo" alt="Keen logo" />
         }
-        <h1>KEEN Organizational Ethics Assessment</h1>
+        
       </div>
       <div className="app-body">
         <div className="app-card">
+        <h1>KEEN Organizational Ethics Assessment</h1>
           <button onClick={scrollToIntroduction}>Next</button>
         </div>
       </div>

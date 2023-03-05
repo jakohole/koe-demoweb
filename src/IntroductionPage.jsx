@@ -11,7 +11,7 @@ function IntroductionPage() {
   };
 
   return (
-    <div className="introduction-page-container" id="introduction">
+    <div id="introduction">
       <Introduction />
       <button className="scroll-to-app-button" onClick={navigateToNext}>
         Next
