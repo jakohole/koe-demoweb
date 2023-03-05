@@ -9,7 +9,7 @@ function SpeedTestPage() {
   };
 
   return (
-    <div className="introduction-page-container" id="speedtestpage">
+    <div className="app-card" id="speedtestpage">
       <h2>Part 1.1 Moral Temptations (right vs wrong) - Speed Test</h2>
       <SpeedTest />
       <button className="scroll-to-app-button" onClick={scrollToNext}>
