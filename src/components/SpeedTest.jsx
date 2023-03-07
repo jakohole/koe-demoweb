@@ -3,7 +3,7 @@ import './Introduction.css';
 
 function SpeedTest() {
   return (
-    <div class="box" id="speedtest1">
+    <div id="speedtest1">
       <p>คำอธิบาย (1.1) </p>
       <ul>
         <li>คุณมีเวลาทั้งหมด 10 วินาที ในการตอบคำถามแต่ละข้อ</li>

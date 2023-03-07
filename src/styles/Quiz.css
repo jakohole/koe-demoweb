@@ -1,0 +1,17 @@
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* set the height of each row */
+  height: 100vh; /* set the height of the container to 100% of the viewport height */
+}
+
+.title {
+  grid-row: 1; /* set the position of the title in the first row */
+}
+
+.content {
+  grid-row: 2; /* set the position of the content in the second row */
+}
+
+.button {
+  grid-row: 3; /* set the position of the button in the third row */
+}
