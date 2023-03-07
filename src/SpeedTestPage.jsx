@@ -1,12 +1,14 @@
-import { useEffect } from 'react';
+import { useState } from 'react';
 import './IntroductionPage.css';
 import SpeedTest from './SpeedTest';
+import SpeedQuiz from './SpeedQuiz';
 import './App.css';
 
 function SpeedTestPage() {
-  const scrollToNext = () => {
-    const quiz1 = document.getElementById('quiz1');
-    introduction.scrollIntoView({ behavior: 'smooth' });
+  const [showQuiz, setShowQuiz] = useState(false);
+
+  const handleStartQuiz = () => {
+    setShowQuiz(true);
   };
 
   // Add event listener to enable scrolling again when card component is no longer fixed
@@ -22,8 +24,8 @@ function SpeedTestPage() {
   return (
     <div className="fixed-card" id="speedtestpage">
       <h2>Part 1.1 Moral Temptations (right vs wrong) - Speed Test</h2>
-      <SpeedTest />
-      <button className="scroll-to-app-button" onClick={scrollToNext}>
+      {showQuiz ? <SpeedQuiz /> : <SpeedTest />}
+      <button className="scroll-to-app-button" onClick={handleStartQuiz}>
         เริ่มทำแบบประเมิน
       </button>
     </div>
