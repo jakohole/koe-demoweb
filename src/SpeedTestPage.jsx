@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import './IntroductionPage.css';
-import SpeedTest from './SpeedTest';
-import SpeedQuiz from './SpeedQuiz';
+import './styles/IntroductionPage.css';
+import SpeedTest from './components/SpeedTest';
+import SpeedQuiz from './components/SpeedQuiz';
 import './styles/App.css';
 import './styles/Quiz.css';
 
@@ -24,16 +24,12 @@ function SpeedTestPage() {
 
   return (
     <div className="box" style={{ marginTop: '100px', position: 'relative' }}>
-      <h2 style={{ position: 'absolute', top: 0, left: 0, right: 0 }}>
+      {/*<h2 style={{ position: 'absolute', top: 0, left: 0, right: 0 }}>
         Part 1.1 Moral Temptations (right vs wrong) - Speed Test
-      </h2>
+      </h2>*/}
       {showQuiz ? <SpeedQuiz /> : <SpeedTest />}
       {showQuiz ? null : (
-        <button
-          className="scroll-to-app-button"
-          onClick={handleStartQuiz}
-          style={{ position: 'fixed', bottom: '20px', right: '20px' }}
-        >
+        <button className="scroll-to-app-button" onClick={handleStartQuiz}>
           เริ่มทำแบบประเมิน
         </button>
       )}

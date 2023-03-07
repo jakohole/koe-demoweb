@@ -1,5 +1,5 @@
 import React from 'react';
-import './Introduction.css';
+import '.././styles/Introduction.css';
 
 function Introduction() {
   return (
