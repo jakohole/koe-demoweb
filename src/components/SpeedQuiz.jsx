@@ -3,8 +3,10 @@ import '.././styles/Introduction.css';
 import '../styles/App.css';
 import Timer from './Timer';
 import questions from '../model/questiondata';
+import { useNavigate } from 'react-router-dom';
 
 function SpeedQuiz() {
+  const navigate = useNavigate();
   const [showChoices, setShowChoices] = useState(false);
   const [selectedChoice, setSelectedChoice] = useState(null);
   const [showNextButton, setShowNextButton] = useState(false);
@@ -35,6 +37,7 @@ function SpeedQuiz() {
     if (questionNumber === questions.length - 1) {
       //setQuizOver(true);
       //setButtonText('Next Part');
+      navigate('/OddmanoutPage');
       setShowNextButton('Submit');
       setShowChoices(false);
       setCountdown(20);
