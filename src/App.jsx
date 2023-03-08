@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import Home from './HomePage';
-import Introduction from './IntroductionPage';
-import Speedtest from './SpeedTestPage';
+import Home from './pages/HomePage';
+import Introduction from './pages/IntroductionPage';
+import Speedtest from './pages/SpeedTestPage';
 
 import { Routes, Route } from 'react-router-dom';
 
