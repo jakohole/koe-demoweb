@@ -56,7 +56,7 @@ function SpeedQuiz() {
     }
   };
 
-  const [countdown, setCountdown] = useState(10);
+  const [countdown, setCountdown] = useState(20);
   useEffect(() => {
     let intervalId;
     if (countdownStarted && countdown > 0) {
