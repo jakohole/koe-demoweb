@@ -34,7 +34,7 @@ function OddmanoutQuiz() {
   }, [countdown]);
 
   return (
-    <div className="oddmanout-quiz">
+    <div className="oddmanout-quiz" id="oddmanout">
       <div className="oddmanout-quiz__questions">
         {questions.map((question, index) => (
           <div
