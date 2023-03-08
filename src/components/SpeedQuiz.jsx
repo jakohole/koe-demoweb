@@ -10,6 +10,8 @@ function SpeedQuiz() {
   const [showNextButton, setShowNextButton] = useState(false);
   const [countdownStarted, setCountdownStarted] = useState(false);
   const [questionNumber, setQuestionNumber] = useState(0);
+  const [quizOver, setQuizOver] = useState(false);
+  const [buttonText, setButtonText] = useState('Next');
 
   const handleShowChoices = () => {
     setShowChoices(true);
@@ -29,38 +31,38 @@ function SpeedQuiz() {
     const isCorrect =
       currentQuestion.choices[selectedChoice] ===
       currentQuestion.choices[currentQuestion.answer];
-
     // Move to the next question or end of the quiz
     if (questionNumber === questions.length - 1) {
-      //alert('Quiz is over!'); // display a message to show the end of the quiz}
-      setQuestionNumber(0); // restart the quiz
+      //setQuizOver(true);
+      //setButtonText('Next Part');
+      setShowNextButton('Submit');
       setShowChoices(false);
-      setShowNextButton(false);
-      setSelectedChoice(null);
-      setCountdownStarted(false);
+      setCountdown(20);
     } else {
       setQuestionNumber(questionNumber + 1);
       setShowChoices(false);
       setShowNextButton(false);
       setSelectedChoice(null);
       setCountdownStarted(false);
+      setButtonText('Next');
 
       // Display a message based on the selected choice
       /*
-      if (isCorrect) {
-        alert('Correct!');
-      } else {
-        alert('Incorrect!');
-      }
-      */
+  if (isCorrect) {
+    alert('Correct!');
+  } else {
+    alert('Incorrect!');
+  }
+  */
     }
+    setCountdown(20);
   };
 
   const [countdown, setCountdown] = useState(20);
   useEffect(() => {
     let intervalId;
     if (countdownStarted && countdown > 0) {
-      intervalId = setInterval(() => setCountdown(countdown - 1), 2000);
+      intervalId = setInterval(() => setCountdown(countdown - 1), 1000);
     } else if (countdownStarted && countdown === 0) {
       clearInterval(intervalId);
       handleNext();
@@ -88,7 +90,13 @@ function SpeedQuiz() {
               <label htmlFor="choice">{choice}</label>
             </div>
           ))}
-          {showNextButton && <button onClick={handleNext}>Next</button>}
+          {showNextButton === 'Submit' ? (
+            <button onClick={handleNext}>Submit</button>
+          ) : (
+            <button onClick={handleNext}>
+              {questionNumber === questions.length - 1 ? 'Submit' : 'Next'}
+            </button>
+          )}
         </div>
       ) : (
         <button onClick={handleShowChoices}>Show choices</button>
