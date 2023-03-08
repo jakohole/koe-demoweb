@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import './styles/IntroductionPage.css';
-import SpeedTest from './components/SpeedTest';
-import SpeedQuiz from './components/SpeedQuiz';
-import './styles/App.css';
-import './styles/Quiz.css';
+import '../styles/IntroductionPage.css';
+import SpeedTest from '../components/SpeedTest';
+import SpeedQuiz from '../components/SpeedQuiz';
+import '../styles/App.css';
+import '../styles/Quiz.css';
 
 function SpeedTestPage() {
   const [showQuiz, setShowQuiz] = useState(false);

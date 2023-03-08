@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import keenLogo from './assets/keen.svg';
+import reactLogo from '../assets/react.svg';
+import keenLogo from '../assets/keen.svg';
 import IntroductionPage from './IntroductionPage';
-import './styles/App.css';
-import './styles/IntroductionPage.css';
-import StartButton from './assets/button_start.png';
+import '../styles/App.css';
+import '../styles/IntroductionPage.css';
+import StartButton from '../assets/button_start.png';
 
 import Speedtest from './SpeedTestPage';
 

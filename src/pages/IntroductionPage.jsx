@@ -1,7 +1,7 @@
-import './styles/IntroductionPage.css';
-import Introduction from './components/Introduction';
+import '../styles/IntroductionPage.css';
+import Introduction from '../components/Introduction';
 import { useNavigate } from 'react-router-dom';
-import './styles/App.css';
+import '../styles/App.css';
 
 function IntroductionPage() {
   const navigate = useNavigate();
