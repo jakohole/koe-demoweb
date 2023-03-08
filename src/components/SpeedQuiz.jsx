@@ -37,7 +37,7 @@ function SpeedQuiz() {
     if (questionNumber === questions.length - 1) {
       //setQuizOver(true);
       //setButtonText('Next Part');
-      navigate('/OddmanoutPage');
+      navigate('/oddmanout');
       setShowNextButton('Submit');
       setShowChoices(false);
       setCountdown(20);
