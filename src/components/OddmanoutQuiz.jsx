@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-//import '../styles/OddmanoutQuiz.css';
+import '../styles/OddmanoutQuiz.css';
 import questions from '../model/questiondata';
+import { useNavigate } from 'react-router-dom';
 
 function OddmanoutQuiz() {
   const [selectedChoices, setSelectedChoices] = useState(Array(3).fill(null));
@@ -22,7 +23,7 @@ function OddmanoutQuiz() {
     );
 
     // Display the results
-    alert(`You got ${correctAnswers.length} out of 3 correct!`);
+    //alert(`You got ${correctAnswers.length} out of 3 correct!`);
   };
 
   useEffect(() => {
@@ -70,12 +71,13 @@ function OddmanoutQuiz() {
       >
         Submit
       </button>
+      {/*
       <div className="oddmanout-quiz__timer">
         {Math.floor(countdown / 60)
           .toString()
           .padStart(2, '0')}
         :{(countdown % 60).toString().padStart(2, '0')}
-      </div>
+      </div>*/}
     </div>
   );
 }

@@ -1,0 +1,58 @@
+/* Oddmanout.css */
+
+/* Center the quiz container */
+.oddmanout-quiz {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: white;
+  border-radius: 10px;
+}
+
+/* Style the questions container */
+.oddmanout-quiz__questions {
+  max-width: 600px;
+  overflow: auto;
+}
+
+/* Style each question box */
+.oddmanout-quiz__question {
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.5s ease-out;
+}
+
+/* Fade a question box when it's not current */
+.oddmanout-quiz__question.faded {
+  opacity: 0.3;
+}
+
+/* Highlight the current question box */
+.oddmanout-quiz__question.current {
+  background-color: #f2f2f2;
+}
+
+/* Style the question and choice text */
+.oddmanout-quiz__question h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.oddmanout-quiz__choice label {
+  margin-left: 10px;
+  font-size: 1rem;
+}
+
+/* Style the timer */
+.oddmanout-quiz__timer {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}

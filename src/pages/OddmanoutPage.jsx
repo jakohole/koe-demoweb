@@ -7,7 +7,7 @@ import Quiz from '../components/OddmanoutQuiz.jsx';
 function OddmanoutPage() {
   const scrollToQuiz = () => {
     const oddquiz = document.getElementById('oddmanout');
-    introduction.scrollIntoView({ behavior: 'smooth' });
+    oddquiz.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -15,13 +15,13 @@ function OddmanoutPage() {
       <div className="app-header">
         {
           //<img src={keenLogo} className="logo" alt="Keen logo" />
-          <h2>
-            <span> Odd Man Out Test</span>
-          </h2>
         }
       </div>
       <div className="app-body">
         <div className="app-card">
+          <h2>
+            <span> Odd Man Out Test</span>
+          </h2>
           <div className="box">
             <Instruction />
             <button onClick={scrollToQuiz}>เริ่มทำแบบประเมิน</button>
@@ -29,10 +29,7 @@ function OddmanoutPage() {
         </div>
       </div>
 
-      {
-        //<SpeedTestPage />
-        <OddmanoutQuiz />
-      }
+      <OddmanoutQuiz />
     </div>
   );
 }
