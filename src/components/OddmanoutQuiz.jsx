@@ -4,6 +4,7 @@ import questions from '../model/questiondata';
 import { useNavigate } from 'react-router-dom';
 
 function OddmanoutQuiz() {
+  const navigate = useNavigate();
   const [selectedChoices, setSelectedChoices] = useState(Array(3).fill(null));
   const [countdown, setCountdown] = useState(3600);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -17,10 +18,11 @@ function OddmanoutQuiz() {
   };
 
   const handleSubmit = () => {
+    navigate('/no-time-limit');
     // Compute the number of correct answers
-    const correctAnswers = selectedChoices.filter(
-      (choice, index) => choice === questions[index].answer
-    );
+    //const correctAnswers = selectedChoices.filter(
+    //  (choice, index) => choice === questions[index].answer
+    //);
 
     // Display the results
     //alert(`You got ${correctAnswers.length} out of 3 correct!`);
