@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/NoTimelimitQuiz.css';
+import '../styles/OddmanoutQuiz.css';
 import questions from '../model/questiondata';
 import { useNavigate } from 'react-router-dom';
 
@@ -28,7 +28,7 @@ function NoTimelimitQuiz() {
   }, []);
 
   return (
-    <div className="no-timelimit-quiz" id="no-timelimit">
+    <div className="no-timelimit-quiz" id="no-time-limit">
       <div className="no-timelimit-quiz__questions">
         {questions.map((question, index) => (
           <div

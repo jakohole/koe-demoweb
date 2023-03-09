@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Instruction from '../components/NoTimelimitInstruction';
-import OddmanoutQuiz from '../components/OddmanoutQuiz.jsx';
+import NoTimelimitQuiz from '../components/NoTimelimitQuiz';
 //import Instruction from './Instruction';
 import Quiz from '../components/OddmanoutQuiz.jsx';
 
 function NoTimelimitPage() {
   const scrollToQuiz = () => {
-    const ntlquiz = document.getElementById('notimelimit');
+    const ntlquiz = document.getElementById('no-time-limit');
     ntlquiz.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -29,7 +29,7 @@ function NoTimelimitPage() {
         </div>
       </div>
 
-      <OddmanoutQuiz />
+      <NoTimelimitQuiz />
     </div>
   );
 }
