@@ -12,11 +12,6 @@ function OddmanoutPage() {
 
   return (
     <div className="app-container">
-      <div className="app-header">
-        {
-          //<img src={keenLogo} className="logo" alt="Keen logo" />
-        }
-      </div>
       <div className="app-body">
         <div className="app-card">
           <h2>
