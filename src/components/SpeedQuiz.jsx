@@ -13,7 +13,7 @@ function SpeedQuiz() {
   const [countdownStarted, setCountdownStarted] = useState(false);
   const [questionNumber, setQuestionNumber] = useState(0);
   const [quizOver, setQuizOver] = useState(false);
-  const [buttonText, setButtonText] = useState('Next');
+  const [buttonText, setButtonText] = useState('Nex');
 
   const handleShowChoices = () => {
     setShowChoices(true);
@@ -77,32 +77,48 @@ function SpeedQuiz() {
 
   return (
     <div className="box" id="speedquiz">
-      <p>{currentQuestion.question}</p>
+      <p className="text-md text-left">{currentQuestion.question}</p>
       {currentQuestion && showChoices ? (
-        <div>
+        <div className="mt-2">
           <Timer countdown={countdown} />
           {currentQuestion.choices.map((choice, index) => (
-            <div key={index}>
+            <div key={index} className="flex items-center px-10 ">
               <input
                 type="radio"
+                id={`choice-${index}`}
                 name="choice"
                 value={index}
                 checked={selectedChoice === index}
                 onChange={handleSelectChoice}
+                className="mr-2"
               />
+
               <label htmlFor="choice">{choice}</label>
             </div>
           ))}
           {showNextButton === 'Submit' ? (
-            <button onClick={handleNext}>Submit</button>
+            <button
+              className="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 mt-4 rounded-full"
+              onClick={handleNext}
+            >
+              Submit
+            </button>
           ) : (
-            <button onClick={handleNext}>
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full ${!showNextButton && 'hidden'}`"
+              onClick={handleNext}
+            >
               {questionNumber === questions.length - 1 ? 'Submit' : 'Next'}
             </button>
           )}
         </div>
       ) : (
-        <button onClick={handleShowChoices}>Show choices</button>
+        <button
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full"
+          onClick={handleShowChoices}
+        >
+          แสดงตัวเลือก
+        </button>
       )}
     </div>
   );
