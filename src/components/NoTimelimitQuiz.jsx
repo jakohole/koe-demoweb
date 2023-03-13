@@ -4,25 +4,21 @@ import { useNavigate } from 'react-router-dom';
 
 function NoTimelimitQuiz() {
   const navigate = useNavigate();
-  const [selectedChoices, setSelectedChoices] = useState(Array(3).fill([]));
+  const [selectedChoices, setSelectedChoices] = useState(Array(3).fill(null));
   const [countdown, setCountdown] = useState(3600);
   const [currentQuestion, setCurrentQuestion] = useState(
-    questions.findIndex((q) => q.type === 2)
+    questions.findIndex((q) => q.type === 3)
   );
   const questionRefs = useRef([]);
 
   const handleSelectChoice = (event) => {
     const questionIndex = parseInt(event.target.name);
     const choiceIndex = parseInt(event.target.value);
-    const newSelectedChoices = [...selectedChoices];
-    if (!newSelectedChoices[questionIndex].includes(choiceIndex)) {
-      newSelectedChoices[questionIndex].push(choiceIndex);
-    } else {
-      newSelectedChoices[questionIndex] = newSelectedChoices[
-        questionIndex
-      ].filter((index) => index !== choiceIndex);
-    }
-    setSelectedChoices(newSelectedChoices);
+    setSelectedChoices(
+      selectedChoices.map((choices, index) =>
+        index === questionIndex ? choiceIndex : choices
+      )
+    );
   };
 
   const handleNextQuestion = () => {
@@ -47,7 +43,7 @@ function NoTimelimitQuiz() {
   return (
     <div className="container px-8 py-8">
       {questions
-        .filter((question) => question.type === 2)
+        .filter((question) => question.type === 3)
         .map((question, index) => (
           <div
             key={index}
@@ -58,11 +54,11 @@ function NoTimelimitQuiz() {
             {question.choices.map((choice, choiceIndex) => (
               <div key={choiceIndex} className="my-4 flex text-left">
                 <input
-                  type="checkbox"
+                  type="radio"
                   id={`question-${index}-choice-${choiceIndex}`}
                   name={index}
                   value={choiceIndex}
-                  checked={selectedChoices[index].includes(choiceIndex)}
+                  checked={selectedChoices[index] === choiceIndex}
                   onChange={handleSelectChoice}
                   className="mr-2"
                 />
@@ -81,7 +77,7 @@ function NoTimelimitQuiz() {
         onClick={handleNextQuestion}
       >
         {currentQuestion >=
-        questions.filter((question) => question.type === 2).length - 1
+        questions.filter((question) => question.type === 3).length - 1
           ? 'ส่งคำตอบ'
           : 'Next'}
       </button>
