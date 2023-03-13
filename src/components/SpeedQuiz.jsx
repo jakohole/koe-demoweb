@@ -34,7 +34,9 @@ function SpeedQuiz() {
       currentQuestion.choices[selectedChoice] ===
       currentQuestion.choices[currentQuestion.answer];
     // Move to the next question or end of the quiz
-    if (questionNumber === questions.length - 1) {
+    const lastQuestionWithType1 = questions.filter((q) => q.type === 1).pop();
+    const lastQuestionIndexWithType1 = questions.indexOf(lastQuestionWithType1);
+    if (questionNumber === lastQuestionIndexWithType1) {
       //setQuizOver(true);
       //setButtonText('Next Part');
       navigate('/oddmanout');
@@ -47,7 +49,7 @@ function SpeedQuiz() {
       setShowNextButton(false);
       setSelectedChoice(null);
       setCountdownStarted(false);
-      setButtonText('Nexะ');
+      setButtonText('Next');
     }
     setCountdown(20);
   };
@@ -64,7 +66,7 @@ function SpeedQuiz() {
     return () => clearInterval(intervalId);
   }, [countdown, countdownStarted, handleNext]);
 
-  const currentQuestion = questions[questionNumber];
+  const currentQuestion = questions.filter((q) => q.type === 1)[questionNumber];
 
   return (
     <div className="box" id="speedquiz">

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import '../styles/OddmanoutQuiz.css';
 import questions from '../model/questiondata';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,13 +6,21 @@ function OddmanoutQuiz() {
   const navigate = useNavigate();
   const [selectedChoices, setSelectedChoices] = useState(Array(3).fill([]));
   const [countdown, setCountdown] = useState(3600);
-  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [currentQuestion, setCurrentQuestion] = useState(
+    questions.findIndex((q) => q.type === 2)
+  );
 
   const handleSelectChoice = (event) => {
     const questionIndex = parseInt(event.target.name);
     const choiceIndex = parseInt(event.target.value);
     const newSelectedChoices = [...selectedChoices];
-    newSelectedChoices[questionIndex] = [choiceIndex];
+    if (!newSelectedChoices[questionIndex].includes(choiceIndex)) {
+      newSelectedChoices[questionIndex].push(choiceIndex);
+    } else {
+      newSelectedChoices[questionIndex] = newSelectedChoices[
+        questionIndex
+      ].filter((index) => index !== choiceIndex);
+    }
     setSelectedChoices(newSelectedChoices);
   };
 
@@ -21,7 +28,8 @@ function OddmanoutQuiz() {
     navigate('/no-time-limit');
     // Compute the number of correct answers
     //const correctAnswers = selectedChoices.filter(
-    //  (choice, index) => choice === questions[index].answer
+    //  (choices, index) =>
+    //    choices.sort().toString() === questions[index].answer.sort().toString()
     //);
 
     // Display the results
@@ -36,23 +44,17 @@ function OddmanoutQuiz() {
     return () => clearInterval(intervalId);
   }, [countdown]);
 
+  //const currentQuestion = questions.filter((q) => q.type === 2)[questionNumber];
+
   return (
-    <div
-      id="oddmanout-quiz"
-      className="bg-gray-100 min-h-screen flex items-center justify-center"
-    >
-      <div className="p-4 bg-white max-w-md w-full rounded-md shadow-md">
-        {questions.map((question, index) => (
-          <div
-            key={index}
-            className={
-              'oddmanout-quiz__question' +
-              (index === currentQuestion ? ' current' : ' faded')
-            }
-          >
-            <h2 className="text-xl font-bold mb-2">{question.question}</h2>
+    <div className="container px-8 py-8">
+      {questions
+        .filter((question) => question.type === 2)
+        .map((question, index) => (
+          <div key={index} className="bg-white rounded-md shadow-lg p-4 mb-4">
+            <p className="text-lg font-bold text-left">{question.question}</p>
             {question.choices.map((choice, choiceIndex) => (
-              <div key={choiceIndex} className="oddmanout-quiz__choice">
+              <div key={choiceIndex} className="my-4 flex">
                 <input
                   type="checkbox"
                   id={`question-${index}-choice-${choiceIndex}`}
@@ -60,10 +62,11 @@ function OddmanoutQuiz() {
                   value={choiceIndex}
                   checked={selectedChoices[index].includes(choiceIndex)}
                   onChange={handleSelectChoice}
+                  className="mr-2"
                 />
                 <label
                   htmlFor={`question-${index}-choice-${choiceIndex}`}
-                  className="ml-2"
+                  className="font-semibold flex-1"
                 >
                   {choice}
                 </label>
@@ -71,14 +74,21 @@ function OddmanoutQuiz() {
             ))}
           </div>
         ))}
-        <button
-          className="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-          disabled={selectedChoices.includes([])}
-          onClick={handleSubmit}
-        >
-          Submit
-        </button>
-      </div>
+      {/*
+      <button
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full disabled:opacity-50"
+        disabled={
+          selectedChoices.some((choices) => choices.length === 0) ||
+          currentQuestion !==
+            questions.filter((question) => question.type === 1).length - 1
+        }
+        onClick={() => setCurrentQuestion(currentQuestion + 1)}
+      >
+        {currentQuestion ===
+        questions.filter((question) => question.type === 1).length - 1
+          ? 'Submit'
+          : 'Next'}
+      </button>*/}
     </div>
   );
 }
