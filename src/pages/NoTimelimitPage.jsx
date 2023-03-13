@@ -26,9 +26,7 @@ function NoTimelimitPage() {
               เริ่มทำแบบประเมิน
             </button>
             <div id="no-time-limit" className="mt-28">
-              {
-                //<NoTimelimitQuiz />
-              }
+              {<NoTimelimitQuiz />}
             </div>
           </div>
         </div>
