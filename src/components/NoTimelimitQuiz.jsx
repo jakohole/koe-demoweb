@@ -28,7 +28,7 @@ function NoTimelimitQuiz() {
         behavior: 'smooth',
       });
     } else {
-      navigate('/no-time-limit');
+      navigate('/scalestest');
     }
   };
 
