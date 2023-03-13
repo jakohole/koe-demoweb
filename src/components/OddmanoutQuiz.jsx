@@ -77,17 +77,12 @@ function OddmanoutQuiz() {
           </div>
         ))}
       <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full disabled:opacity-50"
-        disabled={
-          selectedChoices.some((choices) => choices.length === 0) ||
-          currentQuestion >=
-            questions.filter((question) => question.type === 2).length - 1
-        }
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full  mx-auto h-10 "
         onClick={handleNextQuestion}
       >
         {currentQuestion >=
         questions.filter((question) => question.type === 2).length - 1
-          ? 'Submit'
+          ? 'ส่งคำตอบ'
           : 'Next'}
       </button>
     </div>
