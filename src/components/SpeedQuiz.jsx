@@ -47,16 +47,7 @@ function SpeedQuiz() {
       setShowNextButton(false);
       setSelectedChoice(null);
       setCountdownStarted(false);
-      setButtonText('Next');
-
-      // Display a message based on the selected choice
-      /*
-  if (isCorrect) {
-    alert('Correct!');
-  } else {
-    alert('Incorrect!');
-  }
-  */
+      setButtonText('Nexะ');
     }
     setCountdown(20);
   };
@@ -81,22 +72,22 @@ function SpeedQuiz() {
       {currentQuestion && showChoices ? (
         <div className="mt-2">
           <Timer countdown={countdown} />
-          {currentQuestion.choices.map((choice, index) => (
-            <div key={index} className="flex items-center px-10 ">
-              <input
-                type="radio"
-                id={`choice-${index}`}
-                name="choice"
-                value={index}
-                checked={selectedChoice === index}
-                onChange={handleSelectChoice}
-                className="mr-2"
-              />
-
-              <label htmlFor="choice">{choice}</label>
-            </div>
-          ))}
-          {showNextButton === 'Submit' ? (
+          {showChoices &&
+            currentQuestion.choices.map((choice, index) => (
+              <div key={index} className="flex items-center px-10 ">
+                <input
+                  type="radio"
+                  id={`choice-${index}`}
+                  name="choice"
+                  value={index}
+                  checked={selectedChoice === index}
+                  onChange={handleSelectChoice}
+                  className="mr-2"
+                />
+                <label htmlFor="choice">{choice}</label>
+              </div>
+            ))}
+          {showNextButton && showNextButton === 'Submit' ? (
             <button
               className="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 mt-4 rounded-full"
               onClick={handleNext}
@@ -108,7 +99,7 @@ function SpeedQuiz() {
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full ${!showNextButton && 'hidden'}`"
               onClick={handleNext}
             >
-              {questionNumber === questions.length - 1 ? 'Submit' : 'Next'}
+              {questionNumber === questions.length - 1 ? 'ส่งคำตอบ' : 'ถัดไป'}
             </button>
           )}
         </div>

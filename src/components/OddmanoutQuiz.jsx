@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 function OddmanoutQuiz() {
   const navigate = useNavigate();
-  const [selectedChoices, setSelectedChoices] = useState(Array(3).fill(null));
+  const [selectedChoices, setSelectedChoices] = useState(Array(3).fill([]));
   const [countdown, setCountdown] = useState(3600);
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
@@ -13,7 +13,7 @@ function OddmanoutQuiz() {
     const questionIndex = parseInt(event.target.name);
     const choiceIndex = parseInt(event.target.value);
     const newSelectedChoices = [...selectedChoices];
-    newSelectedChoices[questionIndex] = choiceIndex;
+    newSelectedChoices[questionIndex] = [choiceIndex];
     setSelectedChoices(newSelectedChoices);
   };
 
@@ -37,8 +37,11 @@ function OddmanoutQuiz() {
   }, [countdown]);
 
   return (
-    <div className="oddmanout-quiz" id="oddmanout">
-      <div className="oddmanout-quiz__questions">
+    <div
+      id="oddmanout-quiz"
+      className="bg-gray-100 min-h-screen flex items-center justify-center"
+    >
+      <div className="p-4 bg-white max-w-md w-full rounded-md shadow-md">
         {questions.map((question, index) => (
           <div
             key={index}
@@ -47,39 +50,35 @@ function OddmanoutQuiz() {
               (index === currentQuestion ? ' current' : ' faded')
             }
           >
-            <h2>{question.question}</h2>
+            <h2 className="text-xl font-bold mb-2">{question.question}</h2>
             {question.choices.map((choice, choiceIndex) => (
               <div key={choiceIndex} className="oddmanout-quiz__choice">
                 <input
-                  type="radio"
+                  type="checkbox"
                   id={`question-${index}-choice-${choiceIndex}`}
                   name={index}
                   value={choiceIndex}
-                  checked={selectedChoices[index] === choiceIndex}
+                  checked={selectedChoices[index].includes(choiceIndex)}
                   onChange={handleSelectChoice}
                 />
-                <label htmlFor={`question-${index}-choice-${choiceIndex}`}>
+                <label
+                  htmlFor={`question-${index}-choice-${choiceIndex}`}
+                  className="ml-2"
+                >
                   {choice}
                 </label>
               </div>
             ))}
           </div>
         ))}
+        <button
+          className="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+          disabled={selectedChoices.includes([])}
+          onClick={handleSubmit}
+        >
+          Submit
+        </button>
       </div>
-      <button
-        className="oddmanout-quiz__submit"
-        disabled={selectedChoices.includes(null)}
-        onClick={handleSubmit}
-      >
-        Submit
-      </button>
-      {/*
-      <div className="oddmanout-quiz__timer">
-        {Math.floor(countdown / 60)
-          .toString()
-          .padStart(2, '0')}
-        :{(countdown % 60).toString().padStart(2, '0')}
-      </div>*/}
     </div>
   );
 }
