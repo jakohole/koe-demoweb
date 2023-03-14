@@ -7,7 +7,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        'ibm-plex-sans-Thai': ['IBM Plex Sans Thai', 'sans-serif'],
+        sans: ['IBM Plex Sans Thai', 'sans-serif'],
       },
     },
   },
