@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import ScalesInstruction from '../components/ScalesInstruction';
+import ScalesQuiz from '../components/ScalesQuiz';
 //import SpeedQuiz from '../components/SpeedQuiz';
 
 function ScalesTestPage() {
