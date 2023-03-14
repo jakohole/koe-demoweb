@@ -5,7 +5,11 @@ module.exports = {
     container: {
       center: true,
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        'ibm-plex-sans-Thai': ['IBM Plex Sans Thai', 'sans-serif'],
+      },
+    },
   },
   plugins: [require('@tailwindcss/forms')],
 };

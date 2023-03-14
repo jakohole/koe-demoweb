@@ -19,9 +19,14 @@ function HomePage() {
   return (
     <div className="md:container md:mx-auto">
       <div className="flex flex-col items-center justify-center">
-        <div className="inline-flex items-start justify-center px-24 pt-26 mt-10 mb-4">
-          <p className="font-mono text-4xl font-bold text-gray-100">
+        <div className="inline-flex items-start justify-center px-24 pt-26 mt-10 ">
+          <p className="font-sans text-4xl font-bold text-gray-100">
             KEEN Organizational Ethics Assessment
+          </p>
+        </div>
+        <div className="inline-flex items-start justify-center px-24 pt-26 mt-2 mb-4">
+          <p className="font-ibm-plex-sans-thai text-4xl font-bold text-gray-100">
+            แบบประเมินจริยธรรมองค์กร
           </p>
         </div>
         <div>
