@@ -13,9 +13,14 @@ const QuestionData = [
     lastPosition: 0,
   },
   {
-    question:
-      '2. xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-    choices: ['xxx', 'xxx', 'xxx', 'xxx', 'xxx'],
+    question: '2. คำถาม',
+    choices: [
+      'คำตอบที่ 1',
+      'คำตอบที่ 2',
+      'คำตอบที่ 3',
+      'คำตอบที่ 4',
+      'คำตอบที่ 5',
+    ],
     type: 1,
     lastPosition: 1,
   },

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background-image: url('../assets/Keen_BG_Normal.jpg');
+  background-image: url('https://content.keenprofile.com/wp-content/uploads/2020/05/exp_bg5.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -16,7 +16,7 @@ body {
   text-align: center;
 }
 h1 {
-  color: whitesmoke ;
+  color: whitesmoke;
   font-family: monospace;
 }
 .logo {

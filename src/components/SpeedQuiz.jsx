@@ -69,10 +69,10 @@ function SpeedQuiz() {
   const currentQuestion = questions.filter((q) => q.type === 1)[questionNumber];
 
   return (
-    <div className="box" id="speedquiz">
-      <p className="text-md text-left">{currentQuestion.question}</p>
+    <div className="items-left px-24" id="speedquiz">
+      <p className="text-sm text-left">{currentQuestion.question}</p>
       {currentQuestion && showChoices ? (
-        <div className="mt-2">
+        <div className="mt-2 text-sm ">
           <Timer countdown={countdown} />
           {showChoices &&
             currentQuestion.choices.map((choice, index) => (
@@ -91,17 +91,19 @@ function SpeedQuiz() {
             ))}
           {showNextButton && showNextButton === 'Submit' ? (
             <button
-              className="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 mt-4 rounded-full"
+              className="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-24 mt-4 rounded-full"
               onClick={handleNext}
             >
-              Submit
+              ส่งคำตอบ
             </button>
           ) : (
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full ${!showNextButton && 'hidden'}`"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-24 mt-4 rounded-full ${!showNextButton && 'hidden'}`"
               onClick={handleNext}
             >
-              {questionNumber === questions.length - 1 ? 'ส่งคำตอบ' : 'ถัดไป'}
+              {currentQuestion.lastPosition === 1 && currentQuestion.type === 1
+                ? 'ส่งคำตอบ'
+                : 'ถัดไป'}
             </button>
           )}
         </div>
