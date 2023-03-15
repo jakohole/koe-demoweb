@@ -5,7 +5,7 @@ function SpeedTest() {
   return (
     <div className="flex flex-col items-center justify-center ">
       <div
-        className="flex flex-col items-start justify-end bg-white shadow rounded-lg"
+        className="flex flex-col items-start justify-end bg-white shadow rounded-lg text-sm"
         id="speedtest1"
       >
         <p className="px-4 py-4 text-sm">คำอธิบาย (1.1)</p>

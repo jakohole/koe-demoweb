@@ -26,7 +26,7 @@ function SpeedTestPage() {
     <div >
       <div className="flex flex-col items-center justify-center">
         <div className="inline-flex items-start justify-center px-24 pt-26 mt-10 mb-4">
-          <p className="font-mono text-4xl font-bold text-gray-100">
+          <p className="font-serif text-4xl font-bold text-gray-100">
             Part 1-1 - Moral Temptation : Speed Test
           </p>
         </div>

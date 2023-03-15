@@ -9,18 +9,17 @@ import StartButton from '../assets/button_start.png';
 import Speedtest from './SpeedTestPage';
 
 function HomePage() {
-  const [count, setCount] = useState(0);
+  const [showIntroduction, setShowIntroduction] = useState(false);
 
   const scrollToIntroduction = () => {
-    const introduction = document.getElementById('introduction');
-    introduction.scrollIntoView({ behavior: 'smooth' });
+    setShowIntroduction(true);
   };
 
   return (
     <div className="md:container md:mx-auto">
       <div className="flex flex-col items-center justify-center">
-        <div className="inline-flex items-start justify-center px-24 pt-26 mt-10 ">
-          <p className="font-sans text-4xl font-bold text-gray-100">
+        <div className="inline-flex items-start justify-center px-24 pt-26 mt-12 ">
+          <p className="font-serif text-4xl font-bold text-gray-100">
             KEEN Organizational Ethics Assessment
           </p>
         </div>
@@ -29,12 +28,25 @@ function HomePage() {
             แบบประเมินจริยธรรมองค์กร
           </p>
         </div>
-        <div>
-          <IntroductionPage />
-        </div>
+        {!showIntroduction && (
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full"
+            onClick={scrollToIntroduction}
+          >
+            เข้าสู่แบบประเมิน
+          </button>
+        )}
       </div>
+      {showIntroduction && (
+        <div className="md:container md:mx-auto " id="introduction">
+          <div className="flex flex-col items-center justify-center">
+            <div className="w-full rounded-lg shadow-lg p-8">
+              <IntroductionPage />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
-
 export default HomePage;
