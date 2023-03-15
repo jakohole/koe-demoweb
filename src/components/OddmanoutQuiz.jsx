@@ -54,7 +54,7 @@ function OddmanoutQuiz() {
             ref={(el) => (questionRefs.current[index] = el)}
             className="bg-white rounded-md shadow-lg p-4 mb-4"
           >
-            <p className="text-lg font-bold text-left">{question.question}</p>
+            <p className="text-sm  text-left">{question.question}</p>
             {question.choices.map((choice, choiceIndex) => (
               <div key={choiceIndex} className="my-4 flex text-left">
                 <input
@@ -68,7 +68,7 @@ function OddmanoutQuiz() {
                 />
                 <label
                   htmlFor={`question-${index}-choice-${choiceIndex}`}
-                  className="font-semibold flex-1"
+                  className="text-sm flex-1"
                 >
                   {choice}
                 </label>
