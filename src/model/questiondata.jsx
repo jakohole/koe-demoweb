@@ -40,7 +40,7 @@ const QuestionData = [
   {
     question: 'What is 2 + 2?',
     choices: ['1', '2', '3', '4', '5'],
-    type: '2',
+    type: 2,
     lastPosition: 1,
   },
   {

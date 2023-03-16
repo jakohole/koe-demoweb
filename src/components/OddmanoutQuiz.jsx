@@ -55,25 +55,32 @@ function OddmanoutQuiz() {
             className="bg-transparent rounded-md shadow-lg p-4 mb-4"
           >
             <p className="text-sm  text-left">{question.question}</p>
-            {question.choices.map((choice, choiceIndex) => (
-              <div key={choiceIndex} className="my-4 flex text-left">
-                <input
-                  type="checkbox"
-                  id={`question-${index}-choice-${choiceIndex}`}
-                  name={index}
-                  value={choiceIndex}
-                  checked={selectedChoices[index].includes(choiceIndex)}
-                  onChange={handleSelectChoice}
-                  className="mr-2"
-                />
-                <label
-                  htmlFor={`question-${index}-choice-${choiceIndex}`}
-                  className="text-sm flex-1"
-                >
-                  {choice}
-                </label>
-              </div>
-            ))}
+            {question.choices.map((choice, choiceIndex) => {
+              const disabled =
+                currentQuestion !== index ? 'disabled' : undefined;
+              const focusNone =
+                currentQuestion !== index ? 'focus:none' : undefined;
+              return (
+                <div key={choiceIndex} className="my-4 flex text-left">
+                  <input
+                    type="checkbox"
+                    id={`question-${index}-choice-${choiceIndex}`}
+                    name={index}
+                    value={choiceIndex}
+                    checked={selectedChoices[index].includes(choiceIndex)}
+                    onChange={handleSelectChoice}
+                    className={`mr-2 ${focusNone}`}
+                    disabled={disabled}
+                  />
+                  <label
+                    htmlFor={`question-${index}-choice-${choiceIndex}`}
+                    className={`text-sm flex-1 ${focusNone}`}
+                  >
+                    {choice}
+                  </label>
+                </div>
+              );
+            })}
           </div>
         ))}
       <button
