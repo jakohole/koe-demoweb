@@ -38,7 +38,13 @@ const QuestionData = [
     lastPosition: 0,
   },
   {
-    question: 'What is 2 + 2?',
+    question: '2.คำถาม',
+    choices: ['1', '2', '3', '4', '5'],
+    type: 2,
+    lastPosition: 0,
+  },
+  {
+    question: '3.คำถาม',
     choices: ['1', '2', '3', '4', '5'],
     type: 2,
     lastPosition: 1,

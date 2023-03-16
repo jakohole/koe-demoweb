@@ -4,7 +4,18 @@ import { useNavigate } from 'react-router-dom';
 
 function OddmanoutQuiz() {
   const navigate = useNavigate();
-  const [selectedChoices, setSelectedChoices] = useState(Array(3).fill([]));
+  const [selectedChoices, setSelectedChoices] = useState(() => {
+    const arr = [];
+    for (
+      let i = 0;
+      i < questions.filter((question) => question.type === 2).length;
+      i++
+    ) {
+      arr.push([]);
+    }
+    return arr;
+  });
+
   const [countdown, setCountdown] = useState(3600);
   const [currentQuestion, setCurrentQuestion] = useState(
     questions.findIndex((q) => q.type === 2)
@@ -12,7 +23,8 @@ function OddmanoutQuiz() {
   const questionRefs = useRef([]);
 
   const handleSelectChoice = (event) => {
-    const questionIndex = parseInt(event.target.name);
+    const questionIndex = parseInt(event.target.name.split('-')[1]);
+
     const choiceIndex = parseInt(event.target.value);
     const newSelectedChoices = [...selectedChoices];
     if (!newSelectedChoices[questionIndex].includes(choiceIndex)) {
@@ -55,32 +67,25 @@ function OddmanoutQuiz() {
             className="bg-transparent rounded-md shadow-lg p-4 mb-4"
           >
             <p className="text-sm  text-left">{question.question}</p>
-            {question.choices.map((choice, choiceIndex) => {
-              const disabled =
-                currentQuestion !== index ? 'disabled' : undefined;
-              const focusNone =
-                currentQuestion !== index ? 'focus:none' : undefined;
-              return (
-                <div key={choiceIndex} className="my-4 flex text-left">
-                  <input
-                    type="checkbox"
-                    id={`question-${index}-choice-${choiceIndex}`}
-                    name={index}
-                    value={choiceIndex}
-                    checked={selectedChoices[index].includes(choiceIndex)}
-                    onChange={handleSelectChoice}
-                    className={`mr-2 ${focusNone}`}
-                    disabled={disabled}
-                  />
-                  <label
-                    htmlFor={`question-${index}-choice-${choiceIndex}`}
-                    className={`text-sm flex-1 ${focusNone}`}
-                  >
-                    {choice}
-                  </label>
-                </div>
-              );
-            })}
+            {question.choices.map((choice, choiceIndex) => (
+              <div key={choiceIndex} className="my-4 flex text-left">
+                <input
+                  type="checkbox"
+                  id={`question-${index}-choice-${choiceIndex}`}
+                  name={`question-${question.id}`}
+                  value={choiceIndex}
+                  checked={selectedChoices[index].includes(choiceIndex)}
+                  onChange={handleSelectChoice}
+                  className="mr-2"
+                />
+                <label
+                  htmlFor={`question-${index}-choice-${choiceIndex}`}
+                  className="text-sm flex-1"
+                >
+                  {choice}
+                </label>
+              </div>
+            ))}
           </div>
         ))}
       <button
