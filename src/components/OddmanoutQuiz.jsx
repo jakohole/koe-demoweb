@@ -36,6 +36,7 @@ function OddmanoutQuiz() {
     }
   };
   //Create html part with  a question and choice in a shadow box, a button to submit answer is at the bottom, change question by scrolling, after scrolling the non-focus question will be disable and the focus question will be enable
+  // A question is disable and non-focus before scrolling and enable and focus after scrolling
   return (
     <div className="container px-8 py-8">
       {questions
@@ -44,13 +45,15 @@ function OddmanoutQuiz() {
           <div
             key={index}
             ref={(el) => (questionRefs.current[index] = el)}
-            className="bg-white rounded-md shadow-lg p-4 mb-4"
+            className="bg-transparent rounded-md shadow-lg p-4 mb-4"
           >
             <p className="text-lg font-bold text-left">{question.question}</p>
             {question.choices.map((choice, choiceIndex) => (
               <div key={choiceIndex} className="my-4 flex text-left">
+                {//Create multiple box choice
+                }
                 <input
-                  type="radio"
+                  type="checkbox"
                   id={`question-${index}-choice-${choiceIndex}`}
                   name={`question-${index}`}
                   value={choiceIndex}
@@ -68,7 +71,6 @@ function OddmanoutQuiz() {
             ))}
           </div>
         ))}
-        //Create button to submit answer
       <button
         onClick={handleNextQuestion}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
