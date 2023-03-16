@@ -24,7 +24,7 @@ function PowerQuiz() {
     );
   };
   const handleSubmit = () => {
-    navigate('/power');
+    navigate('/scalestest');
   };
   //Create handleNextQuestion function
   const handleNextQuestion = () => {
@@ -34,7 +34,7 @@ function PowerQuiz() {
         behavior: 'smooth',
       });
     } else {
-      navigate('/power');
+      navigate('/scalestest');
     }
   };
 
