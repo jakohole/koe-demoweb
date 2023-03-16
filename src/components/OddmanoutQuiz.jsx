@@ -68,11 +68,12 @@ function OddmanoutQuiz() {
             ))}
           </div>
         ))}
+        //Create button to submit answer
       <button
         onClick={handleNextQuestion}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
       >
-        ถัดไป
+        ส่งคำตอบ
       </button>
     </div>
   );
