@@ -10,7 +10,7 @@ function OddmanoutQuiz() {
   const [selectedChoices, setSelectedChoices] = useState(Array(3).fill(null));
   //Create currentQuestion variable
   const [currentQuestion, setCurrentQuestion] = useState(
-    questions.findIndex((q) => q.type ===  2)
+    questions.findIndex((q) => q.type === 2)
   );
   //Create questionRefs variable
   const questionRefs = useRef([]);
@@ -23,7 +23,7 @@ function OddmanoutQuiz() {
         index === questionIndex ? choiceIndex : choices
       )
     );
-  }
+  };
   //Create handleNextQuestion function
   const handleNextQuestion = () => {
     if (currentQuestion < questions.length - 1) {
@@ -32,7 +32,7 @@ function OddmanoutQuiz() {
         behavior: 'smooth',
       });
     } else {
-      navigate('/no-timelimit-quiz');
+      navigate('/power');
     }
   };
   //A question opacity will be 0.5 if it is not focused
@@ -55,7 +55,8 @@ function OddmanoutQuiz() {
             <p className="text-lg font-bold text-left">{question.question}</p>
             {question.choices.map((choice, choiceIndex) => (
               <div key={choiceIndex} className="my-4 flex text-left">
-                {//Create multiple box choice
+                {
+                  //Create multiple box choice
                 }
                 <input
                   type="checkbox"
@@ -84,8 +85,6 @@ function OddmanoutQuiz() {
       </button>
     </div>
   );
-
-    
 }
 
 export default OddmanoutQuiz;
