@@ -9,7 +9,7 @@ function OddmanoutPage() {
   };
 
   return (
-    <div className="w-full top-24 left-0 shadow-md z-10 ">
+    <div className="w-full top-24 left-0  z-10 ">
       <div className="container mx-auto mt-10 ">
         <p className="font-serif text-4xl font-bold text-gray-100">
           Part 1-2 - Moral Temptations : Odd Man Out
