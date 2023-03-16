@@ -3,16 +3,19 @@ import questions from '../model/questiondata';
 import { useNavigate } from 'react-router-dom';
 
 function PowerQuiz() {
+  //Create navigate variable
   const navigate = useNavigate();
-  const [selectedChoices, setSelectedChoices] = useState(Array(3).fill(null));
-  const [countdown, setCountdown] = useState(3600);
+  //Create selectedChoices variable
+  const [selectedChoices, setSelectedChoices] = useState(Array(2).fill(null));
+  //Create currentQuestion variable
   const [currentQuestion, setCurrentQuestion] = useState(
     questions.findIndex((q) => q.type === 3)
   );
+  //Create questionRefs variable
   const questionRefs = useRef([]);
-
+  //Create handleSelectChoice function
   const handleSelectChoice = (event) => {
-    const questionIndex = parseInt(event.target.name);
+    const questionIndex = parseInt(event.target.name.split('-')[1]);
     const choiceIndex = parseInt(event.target.value);
     setSelectedChoices(
       selectedChoices.map((choices, index) =>
@@ -20,7 +23,10 @@ function PowerQuiz() {
       )
     );
   };
-
+  const handleSubmit = () => {
+    navigate('/power');
+  };
+  //Create handleNextQuestion function
   const handleNextQuestion = () => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
@@ -28,18 +34,11 @@ function PowerQuiz() {
         behavior: 'smooth',
       });
     } else {
-      navigate('/scalestest');
+      navigate('/power');
     }
   };
 
-  useEffect(() => {
-    let intervalId;
-    if (countdown > 0) {
-      intervalId = setInterval(() => setCountdown(countdown - 60), 60000);
-    }
-    return () => clearInterval(intervalId);
-  }, [countdown]);
-
+  //Return OddmanoutQuiz component
   return (
     <div className="container px-8 py-8">
       {questions
@@ -48,15 +47,18 @@ function PowerQuiz() {
           <div
             key={index}
             ref={(el) => (questionRefs.current[index] = el)}
-            className="bg-white rounded-md shadow-lg p-4 mb-4"
+            className="bg-transparent rounded-md shadow-lg p-4 mb-4"
           >
             <p className="text-lg font-bold text-left">{question.question}</p>
             {question.choices.map((choice, choiceIndex) => (
               <div key={choiceIndex} className="my-4 flex text-left">
+                {
+                  //Create multiple box choice
+                }
                 <input
                   type="radio"
                   id={`question-${index}-choice-${choiceIndex}`}
-                  name={index}
+                  name={`question-${index}`}
                   value={choiceIndex}
                   checked={selectedChoices[index] === choiceIndex}
                   onChange={handleSelectChoice}
@@ -64,7 +66,7 @@ function PowerQuiz() {
                 />
                 <label
                   htmlFor={`question-${index}-choice-${choiceIndex}`}
-                  className="font-semibold flex-1"
+                  className="text-gray-700"
                 >
                   {choice}
                 </label>
@@ -73,13 +75,10 @@ function PowerQuiz() {
           </div>
         ))}
       <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full  mx-auto h-10 "
-        onClick={handleNextQuestion}
+        onClick={handleSubmit}
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
       >
-        {currentQuestion >=
-        questions.filter((question) => question.type === 3).length - 1
-          ? 'ส่งคำตอบ'
-          : 'Next'}
+        ส่งคำตอบ
       </button>
     </div>
   );

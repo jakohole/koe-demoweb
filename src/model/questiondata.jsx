@@ -60,9 +60,8 @@ const QuestionData = [
     lastPosition: 0,
   },
   {
-    question:
-      '2. xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-    choices: ['xxx', 'xxx'],
+    question: '2.คำถาม',
+    choices: ['1', '2', '3', '4', '5'],
     type: 3,
     lastPosition: 1,
   },

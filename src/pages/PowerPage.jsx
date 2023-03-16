@@ -6,7 +6,7 @@ import Quiz from '../components/OddmanoutQuiz.jsx';
 
 function PowerPage() {
   const scrollToQuiz = () => {
-    const ntlquiz = document.getElementById('power');
+    const ntlquiz = document.getElementById('power-quiz');
     ntlquiz.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -26,7 +26,7 @@ function PowerPage() {
           </button>
         </div>
       </div>
-      <div className="container mx-auto" id="oddmanout-quiz">
+      <div className="container mx-auto" id="power-quiz">
         <div className="max-w-4xl mx-auto py-8">
           <PowerQuiz />
         </div>

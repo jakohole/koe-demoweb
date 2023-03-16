@@ -38,11 +38,23 @@ function OddmanoutQuiz() {
       navigate('/power');
     }
   };
-  //A question opacity will be 0.5 if it is not focused
+  function isInView(element) {
+    const rect = element.getBoundingClientRect();
+    const windowHeight =
+      window.innerHeight || document.documentElement.clientHeight;
+    const windowWidth =
+      window.innerWidth || document.documentElement.clientWidth;
+    const vertInView = rect.top <= windowHeight && rect.top + rect.height >= 0;
+    const horInView = rect.left <= windowWidth && rect.left + rect.width >= 0;
+    return vertInView && horInView;
+  }
   useEffect(() => {
-    questionRefs.current[currentQuestion].scrollIntoView({
-      behavior: 'smooth',
-    });
+    const currentQuestionRef = questionRefs.current[currentQuestion];
+    if (!isInView(currentQuestionRef)) {
+      currentQuestionRef.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
   }, [currentQuestion]);
   //Return OddmanoutQuiz component
   return (
