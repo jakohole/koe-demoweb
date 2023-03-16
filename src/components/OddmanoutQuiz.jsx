@@ -24,6 +24,9 @@ function OddmanoutQuiz() {
       )
     );
   };
+  const handleSubmit = () => {
+    navigate('/power');
+  };
   //Create handleNextQuestion function
   const handleNextQuestion = () => {
     if (currentQuestion < questions.length - 1) {
@@ -78,7 +81,7 @@ function OddmanoutQuiz() {
           </div>
         ))}
       <button
-        onClick={handleNextQuestion}
+        onClick={handleSubmit}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
       >
         ส่งคำตอบ
