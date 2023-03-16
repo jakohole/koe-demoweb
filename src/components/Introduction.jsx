@@ -13,9 +13,9 @@ function Introduction() {
         </p>
         <ul className="text-left px-4">
           <li className="py-2">
-            ข้อคำถามเพื่อ{' '}
+            ข้อคำถามเพื่อวัด{' '}
             <span className="font-semibold">
-              วัดมาตรฐานทางด้านศีลธรรม (Moral Temptation){' '}
+              มาตรฐานทางด้านศีลธรรม (Moral Temptation){' '}
             </span>{' '}
             ถูกแบ่งออกเป็น 2 พาร์ท
             <ul className="list-none pl-4">
@@ -36,9 +36,9 @@ function Introduction() {
             </ul>
           </li>
           <li className="py-2">
-            ข้อคำถามเพื่อ{' '}
+            ข้อคำถามเพื่อวัด{' '}
             <span className="font-semibold">
-              วัดสถานการณ์ทางด้านทางเลือกจริยธรรม Ethical Direction{' '}
+              สถานการณ์ทางด้านทางเลือกจริยธรรม (Ethical Direction){' '}
             </span>{' '}
             ถูกแบ่งออกเป็น 2 พาร์ท
             <ul className="list-none pl-4">
