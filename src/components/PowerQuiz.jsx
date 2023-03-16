@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import questions from '../model/questiondata';
 import { useNavigate } from 'react-router-dom';
 
-function NoTimelimitQuiz() {
+function PowerQuiz() {
   const navigate = useNavigate();
   const [selectedChoices, setSelectedChoices] = useState(Array(3).fill(null));
   const [countdown, setCountdown] = useState(3600);
@@ -85,4 +85,4 @@ function NoTimelimitQuiz() {
   );
 }
 
-export default NoTimelimitQuiz;
+export default PowerQuiz;

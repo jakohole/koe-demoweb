@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import Instruction from '../components/NoTimelimitInstruction';
-import NoTimelimitQuiz from '../components/NoTimelimitQuiz';
+import Instruction from '../components/PowerInstruction';
+import PowerQuiz from '../components/PowerQuiz';
 //import Instruction from './Instruction';
 import Quiz from '../components/OddmanoutQuiz.jsx';
 
-function NoTimelimitPage() {
+function PowerPage() {
   const scrollToQuiz = () => {
-    const ntlquiz = document.getElementById('no-time-limit');
+    const ntlquiz = document.getElementById('power');
     ntlquiz.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -26,7 +26,7 @@ function NoTimelimitPage() {
               เริ่มทำแบบประเมิน
             </button>
             <div id="no-time-limit" className="mt-28">
-              {<NoTimelimitQuiz />}
+              {<PowerQuiz />}
             </div>
           </div>
         </div>
@@ -35,4 +35,4 @@ function NoTimelimitPage() {
   );
 }
 
-export default NoTimelimitPage;
+export default PowerPage;

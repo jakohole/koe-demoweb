@@ -1,7 +1,7 @@
 import React from 'react';
 import '.././styles/Introduction.css';
 
-function NoTimelimitInstruction() {
+function PowerInstruction() {
   return (
     <div className="flex flex-col items-center justify-center ">
       <div className="flex flex-col items-start justify-end bg-white shadow rounded-lg">
@@ -21,4 +21,4 @@ function NoTimelimitInstruction() {
   );
 }
 
-export default NoTimelimitInstruction;
+export default PowerInstruction;
