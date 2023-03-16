@@ -35,8 +35,13 @@ function OddmanoutQuiz() {
       navigate('/no-timelimit-quiz');
     }
   };
-  //Create html part with  a question and choice in a shadow box, a button to submit answer is at the bottom, change question by scrolling, after scrolling the non-focus question will be disable and the focus question will be enable
-  // A question is disable and non-focus before scrolling and enable and focus after scrolling
+  //A question opacity will be 0.5 if it is not focused
+  useEffect(() => {
+    questionRefs.current[currentQuestion].scrollIntoView({
+      behavior: 'smooth',
+    });
+  }, [currentQuestion]);
+  //Return OddmanoutQuiz component
   return (
     <div className="container px-8 py-8">
       {questions
