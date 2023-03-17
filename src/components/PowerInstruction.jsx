@@ -5,7 +5,7 @@ function PowerInstruction() {
   return (
     <div className="flex flex-col items-center justify-center ">
       <div className="flex flex-col items-start justify-end bg-white shadow rounded-lg">
-        <p className="px-4 py-4 text-sm">คำอธิบาย (2.1)</p>
+        <p className="px-4 py-4 text-lg">คำอธิบาย</p>
         <ul className="text-left px-8 list-disc">
           <li className="py-2">
             คุณมีเวลา <span font-semibold>ไม่จำกัด</span> ในการตอบคำถามทุกข้อ
