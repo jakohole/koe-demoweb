@@ -26,6 +26,7 @@ function OddmanoutQuiz() {
   };
   const handleSubmit = () => {
     navigate('/power');
+    window.scrollTo(0, 0);
   };
   //Create handleNextQuestion function
   /*

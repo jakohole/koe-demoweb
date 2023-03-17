@@ -11,9 +11,9 @@ function PowerQuiz() {
   const [currentQuestion, setCurrentQuestion] = useState(
     questions.findIndex((q) => q.type === 3)
   );
-  /*
+
   //Create questionRefs variable
-  const questionRefs = useRef([]);*/
+  const questionRefs = useRef([]);
   //Create handleSelectChoice function
   const handleSelectChoice = (event) => {
     const questionIndex = parseInt(event.target.name.split('-')[1]);
