@@ -13,7 +13,7 @@ function PowerPage() {
   return (
     <div className="w-full top-24 left-0  z-10 ">
       <div className="container mx-auto mt-10 ">
-        <p className="font-serif text-4xl font-bold text-gray-100">
+        <p className="font-gothic text-4xl font-bold text-white">
           Part 2-1 - Ethical Directions : Power Test
         </p>
         <div className="w-full mx-auto mt-8">
@@ -26,7 +26,7 @@ function PowerPage() {
           </button>
         </div>
       </div>
-      <div className="container mx-auto" id="power-quiz">
+      <div className="mx-auto" id="power-quiz">
         <div className="max-w-4xl mx-auto py-8">
           <PowerQuiz />
         </div>

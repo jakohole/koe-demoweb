@@ -6,13 +6,14 @@ function PowerQuiz() {
   //Create navigate variable
   const navigate = useNavigate();
   //Create selectedChoices variable
-  const [selectedChoices, setSelectedChoices] = useState(Array(2).fill(null));
+  const [selectedChoices, setSelectedChoices] = useState(Array(3).fill(null));
   //Create currentQuestion variable
   const [currentQuestion, setCurrentQuestion] = useState(
     questions.findIndex((q) => q.type === 3)
   );
+  /*
   //Create questionRefs variable
-  const questionRefs = useRef([]);
+  const questionRefs = useRef([]);*/
   //Create handleSelectChoice function
   const handleSelectChoice = (event) => {
     const questionIndex = parseInt(event.target.name.split('-')[1]);
