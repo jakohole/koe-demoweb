@@ -5,6 +5,7 @@ import Speedtest from './pages/SpeedTestPage';
 import Oddmanout from './pages/OddmanoutPage';
 import Power from './pages/PowerPage';
 import Scalestest from './pages/ScalesTestPage';
+import Summary from './pages/SummaryPage';
 
 import { Routes, Route } from 'react-router-dom';
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="oddmanout" element={<Oddmanout />} />
         <Route path="power" element={<Power />} />
         <Route path="scalestest" element={<Scalestest />} />
+        <Route path="lastpage" element={<Summary />} />
       </Routes>
     </div>
   );
