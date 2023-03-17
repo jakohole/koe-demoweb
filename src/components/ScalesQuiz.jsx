@@ -73,8 +73,8 @@ function ScalesQuiz() {
 
   return (
     <div>
-      <div className="box" id="speedquiz">
-        <p className="text-md text-left">{currentQuestion.question}</p>
+      <div className="container items-left px-24">
+        <p className="text-lg text-left">{currentQuestion.question}</p>
         {currentQuestion && showChoices ? (
           <div className="mt-2">
             <Timer countdown={countdown} />
@@ -103,12 +103,14 @@ function ScalesQuiz() {
             )}
           </div>
         ) : (
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full"
-            onClick={handleShowChoices}
-          >
-            แสดงตัวเลือก
-          </button>
+          <div>
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full"
+              onClick={handleShowChoices}
+            >
+              แสดงตัวเลือก
+            </button>
+          </div>
         )}
       </div>
     </div>

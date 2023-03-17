@@ -18,12 +18,12 @@ function TenScalesChoices() {
           className={`w-1/10 h-full ${
             index === selected
               ? 'bg-gradient-to-r from-green-400 to-green-500'
-              : 'bg-white'
+              : 'bg-grey'
           }`}
           onClick={() => handleSelect(index)}
         >
           <div className="flex items-center justify-center flex-1 h-full px-9 pt-6 pb-8">
-            <p className="flex-1 h-full text-xl font-medium leading-loose text-center">
+            <p className="flex-1 h-full text-xl font-lg leading-loose text-center">
               {index + 1}
             </p>
           </div>
