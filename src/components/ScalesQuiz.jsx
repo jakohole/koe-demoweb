@@ -79,7 +79,7 @@ function ScalesQuiz() {
       <div className="container items-left px-24">
         <p className="text-lg text-left">{currentQuestion.question}</p>
         {currentQuestion && showChoices ? (
-          <div className="mt-2">
+          <div className="mt-2 text-lg">
             {<Timer countdown={countdown} />}
             {showChoices && (
               <TenScalesChoices
@@ -88,13 +88,12 @@ function ScalesQuiz() {
                 handleSelectChoice={handleSelectChoice}
               />
             )}
-            {showNextButton && showNextButton === 'true' ? (
+            {showNextButton && showNextButton === 'Submit' ? (
               <button
                 className="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 mt-4 rounded-full"
                 onClick={handleNext}
               >
-                {' '}
-                Submit{' '}
+                ส่งแบบประเมิน
               </button>
             ) : (
               <button
