@@ -49,11 +49,11 @@ function PowerQuiz() {
           <div
             key={index}
             ref={(el) => (questionRefs.current[index] = el)}
-            className="bg-transparent rounded-md shadow-lg p-4 mb-4"
+            className="bg-transparent rounded-md shadow-lg p-4 mb-4 text-lg"
           >
             <p className="text-lg text-left">{question.question}</p>
             {question.choices.map((choice, choiceIndex) => (
-              <div key={choiceIndex} className="my-4 flex text-left">
+              <div key={choiceIndex} className="my-4 flex text-left text-lg">
                 {
                   //Create multiple box choice
                 }

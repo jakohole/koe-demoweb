@@ -18,6 +18,13 @@ function HomePage() {
   return (
     <div className="md:container md:mx-auto">
       <div className="flex flex-col items-center justify-center">
+        <div className="inline-flex items-start  px-24 pt-26 mt-12 ">
+          <img
+            src="https://content.keenprofile.com/wp-content/uploads/2022/02/keenprofile-logo-dark.png"
+            class="h-auto max-w-full"
+            alt="..."
+          />
+        </div>
         <div className="inline-flex items-start justify-center px-24 pt-26 mt-12 ">
           <p className="font-gothic text-6xl font-bold text-white">
             KEEN Organizational Ethics Assessment
@@ -46,6 +53,11 @@ function HomePage() {
           </div>
         </div>
       )}
+      <div className="inline-flex items-start justify-center px-24 pt-26 mt-12 ">
+          <p className="font-gothic text-xs font-bold text-gray-400">
+            Powered by KEEN Profile Thailand
+          </p>
+        </div>
     </div>
   );
 }
