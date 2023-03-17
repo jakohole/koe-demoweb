@@ -51,7 +51,7 @@ function PowerQuiz() {
             ref={(el) => (questionRefs.current[index] = el)}
             className="bg-transparent rounded-md shadow-lg p-4 mb-4"
           >
-            <p className="text-lg font-bold text-left">{question.question}</p>
+            <p className="text-lg text-left">{question.question}</p>
             {question.choices.map((choice, choiceIndex) => (
               <div key={choiceIndex} className="my-4 flex text-left">
                 {
