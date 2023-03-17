@@ -70,9 +70,9 @@ function SpeedQuiz() {
 
   return (
     <div className="items-left px-24" id="speedquiz">
-      <p className="text-sm text-left">{currentQuestion.question}</p>
+      <p className="text-lg text-left">{currentQuestion.question}</p>
       {currentQuestion && showChoices ? (
-        <div className="mt-2 text-sm ">
+        <div className="mt-2 text-lg ">
           <Timer countdown={countdown} />
           {showChoices &&
             currentQuestion.choices.map((choice, index) => (
