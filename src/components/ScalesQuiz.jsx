@@ -14,9 +14,7 @@ function ScalesQuiz() {
   const [countdownStarted, setCountdownStarted] = useState(false);
   const [questionNumber, setQuestionNumber] = useState(0);
   const [quizOver, setQuizOver] = useState(false);
-  const [buttonText, setButtonText] = useState('Next');
-  const [leftValue, setLeftValue] = useState(1);
-  const [rightValue, setRightValue] = useState(5);
+  const [buttonText, setButtonText] = useState('Nex');
 
   const handleShowChoices = () => {
     setShowChoices(true);
@@ -37,15 +35,14 @@ function ScalesQuiz() {
       currentQuestion.choices[selectedChoice] ===
       currentQuestion.choices[currentQuestion.answer];
     // Move to the next question or end of the quiz
-    const lastQuestionWithType1 = questions.filter((q) => q.type === 4).pop();
-    const lastQuestionIndexWithType1 = questions.indexOf(lastQuestionWithType1);
-    if (questionNumber === lastQuestionIndexWithType1) {
-      //setQuizOver(true);
+    const lastQuestionWithType4 = questions.filter((q) => q.type === 4).pop();
+    const lastQuestionIndexWithType4 = questions.indexOf(lastQuestionWithType4);
+    if (questionNumber === lastQuestionIndexWithType4) {
+      setQuizOver(true);
       //setButtonText('Next Part');
       navigate('/lastpage');
       setShowNextButton('Submit');
       setShowChoices(false);
-      //setButtonText('ส่งแบบสอบถาม');
       setCountdown(20);
     } else {
       setQuestionNumber(questionNumber + 1);
@@ -53,9 +50,12 @@ function ScalesQuiz() {
       setShowNextButton(false);
       setSelectedChoice(null);
       setCountdownStarted(false);
-      //setButtonText('Next');
+      setButtonText('Next');
     }
     setCountdown(20);
+  };
+  const handleSubmit = () => {
+    navigate('/lastpage');
   };
 
   const [countdown, setCountdown] = useState(20);
@@ -91,7 +91,7 @@ function ScalesQuiz() {
             {showNextButton && showNextButton === 'Submit' ? (
               <button
                 className="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 mt-4 rounded-full"
-                onClick={handleNext}
+                onClick={handleSubmit}
               >
                 ส่งแบบประเมิน
               </button>
