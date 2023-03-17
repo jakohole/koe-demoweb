@@ -19,12 +19,12 @@ function HomePage() {
     <div className="md:container md:mx-auto">
       <div className="flex flex-col items-center justify-center">
         <div className="inline-flex items-start justify-center px-24 pt-26 mt-12 ">
-          <p className="font-gothic text-4xl font-bold text-white">
+          <p className="font-gothic text-6xl font-bold text-white">
             KEEN Organizational Ethics Assessment
           </p>
         </div>
-        <div className="inline-flex items-start justify-center px-24 pt-26 mt-2 mb-2">
-          <p className="font-ibm-plex-sans-thai text-4xl font-bold text-white">
+        <div className="inline-flex items-start justify-center px-24 pt-26 mt-4 mb-2">
+          <p className="font-ibm-plex-sans-thai text-6xl font-bold text-white">
             แบบประเมินจริยธรรมองค์กร
           </p>
         </div>
@@ -40,7 +40,7 @@ function HomePage() {
       {showIntroduction && (
         <div className="md:container md:mx-auto " id="introduction">
           <div className="flex flex-col items-center justify-center">
-            <div className="w-full rounded-lg shadow-lg p-8">
+            <div className="w-full rounded-lg p-8">
               <IntroductionPage />
             </div>
           </div>
