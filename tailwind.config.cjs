@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['IBM Plex Sans Thai', 'sans-serif'],
+        gothic: ['Didact Gothic', 'sans-serif'],
       },
       backgroundImage: (theme) => ({
         keen: "url('https://content.keenprofile.com/wp-content/uploads/2020/05/exp_bg5.jpg')",
