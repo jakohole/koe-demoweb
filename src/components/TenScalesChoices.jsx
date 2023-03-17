@@ -17,13 +17,17 @@ function TenScalesChoices() {
           key={index}
           className={`w-10/5 h-full ${
             index === selected
-              ? 'bg-gradient-to-r from-green-400 to-green-500'
+              ? 'bg-gradient-to-t from-teal-300 to-teal-500'
               : 'bg-white'
-          } hover:bg-gray-100`}
+          } hover:text-white hover:bg-gray-200`}
           onClick={() => handleSelect(index)}
         >
           <div className="flex items-center justify-center flex-1 h-full px-9 pt-6 pb-8">
-            <p className="flex-1 h-full text-xl font-lg leading-loose text-center">
+            <p
+              className={`flex-1 h-full text-xl font-lg leading-loose text-center font-semibold${
+                selected === index ? 'text-white' : ''
+              } hover:text-white`}
+            >
               {5 - index}
             </p>
           </div>
@@ -34,14 +38,18 @@ function TenScalesChoices() {
         <div
           key={index}
           className={`w-10/5 h-full ${
-            index === selected
-              ? 'bg-gradient-to-r from-green-400 to-green-500'
+            index + 5 === selected
+              ? 'bg-gradient-to-t from-teal-300 to-teal-500'
               : 'bg-white'
-          } hover:bg-gray-100`}
+          } hover:text-white hover:bg-gray-200`}
           onClick={() => handleSelect(index + 5)}
         >
           <div className="flex items-center justify-center flex-1 h-full px-9 pt-6 pb-8">
-            <p className="flex-1 h-full text-xl font-lg leading-loose text-center">
+            <p
+              className={`flex-1 h-full text-xl font-lg leading-loose text-center font-semibold${
+                selected === index + 5 ? 'text-white' : ''
+              } hover:text-white`}
+            >
               {index + 1}
             </p>
           </div>
