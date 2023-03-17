@@ -32,7 +32,7 @@ function ScalesTestPage() {
             </p>
           </div>
         )}
-        {showQuiz ? <SpeedQuiz /> : <SpeedTest />}
+        {showQuiz ? <ScalesQuiz /> : <ScalesInstruction />}
         {showQuiz ? null : (
           <div className="py-4">
             <button
