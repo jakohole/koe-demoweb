@@ -43,9 +43,9 @@ function ScalesQuiz() {
       //setQuizOver(true);
       //setButtonText('Next Part');
       navigate('/lastpage');
-      setShowNextButton('true');
+      setShowNextButton('Submit');
       setShowChoices(false);
-      setButtonText('ส่งแบบสอบถาม');
+      //setButtonText('ส่งแบบสอบถาม');
       setCountdown(20);
     } else {
       setQuestionNumber(questionNumber + 1);
@@ -53,7 +53,7 @@ function ScalesQuiz() {
       setShowNextButton(false);
       setSelectedChoice(null);
       setCountdownStarted(false);
-      setButtonText('Next');
+      //setButtonText('Next');
     }
     setCountdown(20);
   };
