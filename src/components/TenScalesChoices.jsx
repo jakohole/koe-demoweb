@@ -4,7 +4,7 @@ function TenScalesChoices() {
   const [selected, setSelected] = useState(null);
 
   const handleSelect = (index) => {
-    setSelected(index);
+    setSelected((prevSelected) => (prevSelected === index ? null : index));
   };
 
   return (
@@ -29,16 +29,16 @@ function TenScalesChoices() {
           </div>
         </div>
       ))}
-      <div className="h-10"></div>
+      <div className="w-40 h-full"></div>
       {[...Array(5)].map((_, index) => (
         <div
           key={index}
           className={`w-10/5 h-full ${
-            index === selected
+            index + 5 === selected
               ? 'bg-gradient-to-r from-green-400 to-green-500'
               : 'bg-white'
           }`}
-          onClick={() => handleSelect(index)}
+          onClick={() => handleSelect(index + 5)}
         >
           <div className="flex items-center justify-center flex-1 h-full px-9 pt-6 pb-8">
             <p className="flex-1 h-full text-xl font-lg leading-loose text-center">

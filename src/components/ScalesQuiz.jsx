@@ -58,6 +58,7 @@ function ScalesQuiz() {
   };
 
   const [countdown, setCountdown] = useState(20);
+  {/*}
   useEffect(() => {
     let intervalId;
     if (countdownStarted && countdown > 0) {
@@ -67,7 +68,8 @@ function ScalesQuiz() {
       handleNext();
     }
     return () => clearInterval(intervalId);
-  }, [countdown, countdownStarted, handleNext]);
+  }, [countdown, countdownStarted, handleNext]);*/
+}
 
   const currentQuestion = questions.filter((q) => q.type === 4)[questionNumber];
 
