@@ -42,10 +42,11 @@ function ScalesQuiz() {
     if (questionNumber === lastQuestionIndexWithType1) {
       //setQuizOver(true);
       //setButtonText('Next Part');
-      navigate('/oddmanout');
-      setShowNextButton('Submit');
+      navigate('/lastpage');
+      setShowNextButton('true');
       setShowChoices(false);
-      //setCountdown(20);
+      setButtonText('ส่งแบบสอบถาม');
+      setCountdown(20);
     } else {
       setQuestionNumber(questionNumber + 1);
       setShowChoices(false);
@@ -54,11 +55,12 @@ function ScalesQuiz() {
       setCountdownStarted(false);
       setButtonText('Next');
     }
-    //setCountdown(20);
+    setCountdown(20);
   };
 
   const [countdown, setCountdown] = useState(20);
-  {/*}
+  {
+  }
   useEffect(() => {
     let intervalId;
     if (countdownStarted && countdown > 0) {
@@ -68,8 +70,7 @@ function ScalesQuiz() {
       handleNext();
     }
     return () => clearInterval(intervalId);
-  }, [countdown, countdownStarted, handleNext]);*/
-}
+  }, [countdown, countdownStarted, handleNext]);
 
   const currentQuestion = questions.filter((q) => q.type === 4)[questionNumber];
 
@@ -79,9 +80,7 @@ function ScalesQuiz() {
         <p className="text-lg text-left">{currentQuestion.question}</p>
         {currentQuestion && showChoices ? (
           <div className="mt-2">
-            {
-              //<Timer countdown={countdown} />
-            }
+            {<Timer countdown={countdown} />}
             {showChoices && (
               <TenScalesChoices
                 choices={currentQuestion.choices}
@@ -89,7 +88,7 @@ function ScalesQuiz() {
                 handleSelectChoice={handleSelectChoice}
               />
             )}
-            {showNextButton && showNextButton === 'Submit' ? (
+            {showNextButton && showNextButton === 'true' ? (
               <button
                 className="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 mt-4 rounded-full"
                 onClick={handleNext}
@@ -102,7 +101,10 @@ function ScalesQuiz() {
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full ${!showNextButton && 'hidden'}`"
                 onClick={handleNext}
               >
-                {questionNumber === questions.length - 1 ? 'ส่งคำตอบ' : 'ถัดไป'}
+                {questionNumber === questions.length - 1 &&
+                currentQuestion.type === 1
+                  ? 'ส่งคำตอบ'
+                  : 'ถัดไป'}
               </button>
             )}
           </div>
