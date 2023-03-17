@@ -37,7 +37,7 @@ function ScalesQuiz() {
       currentQuestion.choices[selectedChoice] ===
       currentQuestion.choices[currentQuestion.answer];
     // Move to the next question or end of the quiz
-    const lastQuestionWithType1 = questions.filter((q) => q.type === 1).pop();
+    const lastQuestionWithType1 = questions.filter((q) => q.type === 4).pop();
     const lastQuestionIndexWithType1 = questions.indexOf(lastQuestionWithType1);
     if (questionNumber === lastQuestionIndexWithType1) {
       //setQuizOver(true);
@@ -45,7 +45,7 @@ function ScalesQuiz() {
       navigate('/oddmanout');
       setShowNextButton('Submit');
       setShowChoices(false);
-      setCountdown(20);
+      //setCountdown(20);
     } else {
       setQuestionNumber(questionNumber + 1);
       setShowChoices(false);
@@ -54,7 +54,7 @@ function ScalesQuiz() {
       setCountdownStarted(false);
       setButtonText('Next');
     }
-    setCountdown(20);
+    //setCountdown(20);
   };
 
   const [countdown, setCountdown] = useState(20);
@@ -69,7 +69,7 @@ function ScalesQuiz() {
     return () => clearInterval(intervalId);
   }, [countdown, countdownStarted, handleNext]);
 
-  const currentQuestion = questions.filter((q) => q.type === 1)[questionNumber];
+  const currentQuestion = questions.filter((q) => q.type === 4)[questionNumber];
 
   return (
     <div>
@@ -77,7 +77,9 @@ function ScalesQuiz() {
         <p className="text-lg text-left">{currentQuestion.question}</p>
         {currentQuestion && showChoices ? (
           <div className="mt-2">
-            <Timer countdown={countdown} />
+            {
+              //<Timer countdown={countdown} />
+            }
             {showChoices && (
               <TenScalesChoices
                 choices={currentQuestion.choices}
