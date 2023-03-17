@@ -7,7 +7,7 @@ function OddmanoutQuiz() {
   //Create navigate variable
   const navigate = useNavigate();
   //Create selectedChoices variable
-  const [selectedChoices, setSelectedChoices] = useState(Array(3).fill(null));
+  const [selectedChoices, setSelectedChoices] = useState(Array(3).fill([]));
   //Create currentQuestion variable
   const [currentQuestion, setCurrentQuestion] = useState(
     questions.findIndex((q) => q.type === 2)
@@ -18,11 +18,12 @@ function OddmanoutQuiz() {
   const handleSelectChoice = (event) => {
     const questionIndex = parseInt(event.target.name.split('-')[1]);
     const choiceIndex = parseInt(event.target.value);
-    setSelectedChoices(
-      selectedChoices.map((choices, index) =>
-        index === questionIndex ? choiceIndex : choices
-      )
-    );
+    const updatedChoices = [...selectedChoices];
+    updatedChoices[questionIndex] = [
+      ...selectedChoices[questionIndex],
+      choiceIndex,
+    ];
+    setSelectedChoices(updatedChoices);
   };
   const handleSubmit = () => {
     navigate('/power');
@@ -81,7 +82,7 @@ function OddmanoutQuiz() {
                   id={`question-${index}-choice-${choiceIndex}`}
                   name={`question-${index}`}
                   value={choiceIndex}
-                  checked={selectedChoices[index] === choiceIndex}
+                  checked={selectedChoices[index].includes(choiceIndex)}
                   onChange={handleSelectChoice}
                   className="mr-2"
                 />
