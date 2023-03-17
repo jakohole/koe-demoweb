@@ -19,7 +19,7 @@ function TenScalesChoices() {
             index === selected
               ? 'bg-gradient-to-r from-green-400 to-green-500'
               : 'bg-white'
-          }`}
+          } hover:bg-gray-100`}
           onClick={() => handleSelect(index)}
         >
           <div className="flex items-center justify-center flex-1 h-full px-9 pt-6 pb-8">
@@ -34,10 +34,10 @@ function TenScalesChoices() {
         <div
           key={index}
           className={`w-10/5 h-full ${
-            index + 5 === selected
+            index === selected
               ? 'bg-gradient-to-r from-green-400 to-green-500'
               : 'bg-white'
-          }`}
+          } hover:bg-gray-100`}
           onClick={() => handleSelect(index + 5)}
         >
           <div className="flex items-center justify-center flex-1 h-full px-9 pt-6 pb-8">
