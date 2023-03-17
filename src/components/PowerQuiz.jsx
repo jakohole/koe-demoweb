@@ -27,6 +27,7 @@ function PowerQuiz() {
     navigate('/scalestest');
   };
   //Create handleNextQuestion function
+  /*
   const handleNextQuestion = () => {
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
@@ -37,7 +38,7 @@ function PowerQuiz() {
       navigate('/scalestest');
     }
   };
-
+*/
   //Return OddmanoutQuiz component
   return (
     <div className="container px-8 py-8">
@@ -47,7 +48,7 @@ function PowerQuiz() {
           <div
             key={index}
             ref={(el) => (questionRefs.current[index] = el)}
-            className="bg-transparent rounded-md shadow-lg p-4 mb-4"
+            className="bg-transparent rounded-md shadow-lg p-4 "
           >
             <p className="text-lg font-bold text-left">{question.question}</p>
             {question.choices.map((choice, choiceIndex) => (
@@ -74,12 +75,14 @@ function PowerQuiz() {
             ))}
           </div>
         ))}
-      <button
-        onClick={handleSubmit}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-      >
-        ส่งคำตอบ
-      </button>
+      <div>
+        <button
+          onClick={handleSubmit}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+        >
+          ส่งคำตอบ
+        </button>
+      </div>
     </div>
   );
 }

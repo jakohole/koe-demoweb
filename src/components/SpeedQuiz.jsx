@@ -69,7 +69,7 @@ function SpeedQuiz() {
   const currentQuestion = questions.filter((q) => q.type === 1)[questionNumber];
 
   return (
-    <div className="items-left px-24" id="speedquiz">
+    <div className="container items-left px-24" id="speedquiz">
       <p className="text-lg text-left">{currentQuestion.question}</p>
       {currentQuestion && showChoices ? (
         <div className="mt-2 text-lg ">
@@ -108,12 +108,14 @@ function SpeedQuiz() {
           )}
         </div>
       ) : (
-        <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full"
-          onClick={handleShowChoices}
-        >
-          แสดงตัวเลือก
-        </button>
+        <div>
+          <button
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full"
+            onClick={handleShowChoices}
+          >
+            แสดงตัวเลือก
+          </button>
+        </div>
       )}
     </div>
   );
