@@ -10,7 +10,7 @@ const QuestionData = [
       'กล่าวขอบคุณและอ้างว่าผลงานนั้นเป็นของตน',
     ],
     type: 1,
-    lastPosition: 0,
+    lastPosition: false,
   },
   {
     question: '2. คำถาม',
@@ -22,7 +22,7 @@ const QuestionData = [
       'คำตอบที่ 5',
     ],
     type: 1,
-    lastPosition: 1,
+    lastPosition: true,
   },
   {
     question:
@@ -35,7 +35,7 @@ const QuestionData = [
       'ตักเตือนเพื่อน และช่วยเพื่อนปกปิดและทำลายหลักฐานทั้งหมด',
     ],
     type: 2,
-    lastPosition: 0,
+    lastPosition: false,
   },
   {
     question: '2.คำถาม',
@@ -47,7 +47,7 @@ const QuestionData = [
       'คำตอบที่ 5',
     ],
     type: 2,
-    lastPosition: 0,
+    lastPosition: false,
   },
   {
     question: '3.คำถาม',
@@ -59,7 +59,7 @@ const QuestionData = [
       'คำตอบที่ 5',
     ],
     type: 2,
-    lastPosition: 1,
+    lastPosition: true,
   },
   {
     question:
@@ -69,7 +69,7 @@ const QuestionData = [
       'ยอมทำตามที่หัวหน้าร้องขอ เพื่อช่วยเหลืออนาคตในหน้าที่การงานของหัวหน้า เพราะคาดว่าข้อตกลงนี้ปิดการขายเรียบร้อยแล้ว',
     ],
     type: 3,
-    lastPosition: 0,
+    lastPosition: false,
   },
   {
     question: '2.คำถาม',
@@ -81,33 +81,33 @@ const QuestionData = [
     question: '3.คำถาม',
     choices: ['คำตอบที่ 1', 'คำตอบที่ 2'],
     type: 3,
-    lastPosition: 0,
+    lastPosition: false,
   },
   {
     question: '4.คำถาม',
     choices: ['คำตอบที่ 1', 'คำตอบที่ 2'],
     type: 3,
-    lastPosition: 1,
+    lastPosition: true,
   },
   {
     question:
       '1.  คุณให้ความสำคัญกับสิ่งใดมากกว่ากันระหว่างการมุ่งมั่นไปสู่เป้าหมายและความสำเร็จและการเห็นอกเห็นใจผู้อื่น',
     type: 4,
-    lastPosition: 0,
+    lastPosition: false,
   },
   {
     question:
       '2. คุณให้ความสำคัญกับสิ่งใดมากกว่ากันระหว่างการทำตามมาตรฐาน และ การใส่ใจความรู้สึกผู้อื่น',
     choices: ['5', '4', '3', '2', '1'],
     type: 4,
-    lastPosition: 1,
+    lastPosition: false,
   },
   {
     question:
       '2. คุณให้ความสำคัญกับสิ่งใดมากกว่ากันระหว่างการทำตามมาตรฐาน และ การใส่ใจความรู้สึกผู้อื่น',
     choices: ['5', '4', '3', '2', '1'],
     type: 4,
-    lastPosition: 1,
+    lastPosition: true,
   },
 ];
 

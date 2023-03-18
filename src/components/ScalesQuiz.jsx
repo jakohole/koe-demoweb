@@ -37,7 +37,7 @@ function ScalesQuiz() {
     // Move to the next question or end of the quiz
     const lastQuestionWithType4 = questions.filter((q) => q.type === 4).pop();
     const lastQuestionIndexWithType4 = questions.indexOf(lastQuestionWithType4);
-    if (questionNumber === lastQuestionIndexWithType4) {
+    if (currentQuestion.lastPosition === true) {
       setQuizOver(true);
       //setButtonText('Next Part');
       navigate('/lastpage');
