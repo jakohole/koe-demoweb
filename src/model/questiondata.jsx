@@ -103,8 +103,7 @@ const QuestionData = [
     lastPosition: false,
   },
   {
-    question:
-      '2. คุณให้ความสำคัญกับสิ่งใดมากกว่ากันระหว่างการทำตามมาตรฐาน และ การใส่ใจความรู้สึกผู้อื่น',
+    question: '3. คำถาม',
     choices: ['5', '4', '3', '2', '1'],
     type: 4,
     lastPosition: true,

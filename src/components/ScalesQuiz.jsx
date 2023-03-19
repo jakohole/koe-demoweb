@@ -36,21 +36,27 @@ function ScalesQuiz() {
       currentQuestion.choices[currentQuestion.answer];
     // Move to the next question or end of the quiz
     const lastQuestionWithType4 = questions.filter((q) => q.type === 4).pop();
-    const lastQuestionIndexWithType4 = questions.indexOf(lastQuestionWithType4);
-    if (currentQuestion.lastPosition === true) {
+    console.log(questions.length)
+    console.log('q'+questionNumber)
+    //const lastQuestionIndexWithType4 = questions.indexOf(lastQuestionWithType4);
+    if (lastQuestionWithType4.lastPosition === true) {
       setQuizOver(true);
       //setButtonText('Next Part');
       navigate('/lastpage');
       setShowNextButton('Submit');
       setShowChoices(false);
       setCountdown(20);
+      //console.log(lastQuestionWithType4);
     } else {
       setQuestionNumber(questionNumber + 1);
       setShowChoices(false);
       setShowNextButton(false);
       setSelectedChoice(null);
       setCountdownStarted(false);
-      setButtonText('Next');
+      //setButtonText('Next');
+      console.log(currentQuestion);
+      console.log(currentQuestion.lastPosition);
+      console.log(lastQuestionWithType4.lastPosition);
     }
     setCountdown(20);
   };
@@ -100,9 +106,9 @@ function ScalesQuiz() {
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full ${!showNextButton && 'hidden'}`"
                 onClick={handleNext}
               >
-                {currentQuestion.lastPosition === 1 &&
+                {currentQuestion.lastPosition === true &&
                 currentQuestion.type === 4
-                  ? 'ส่งแบบประเมิน'
+                  ? 'ส่งแบบประเมิน1'
                   : 'ถัดไป'}
               </button>
             )}
