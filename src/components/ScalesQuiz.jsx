@@ -17,13 +17,16 @@ function ScalesQuiz() {
   const [buttonText, setButtonText] = useState('Next');
   const [countdown, setCountdown] = useState(20);
   const [lastQuestionIndex, setLastQuestionIndex] = useState(-1);
+  const currentQuestion = questiondata.filter((q) => q.type === 4)[
+    questionNumber
+  ];
 
   useEffect(() => {
     // Initialize the lastQuestionIndex state variable
-    const lastQuestion = questiondata.filter((q) => q.lastPosition)[0];
+    const lastQuestion = questiondata.filter((q) => q.lastPosition)[3];
     const lastQuestionIndex = questiondata.indexOf(lastQuestion);
     setLastQuestionIndex(lastQuestionIndex);
-    console.log(lastQuestion);
+    //console.log(lastQuestion);
   }, []);
 
   const handleShowChoices = () => {
@@ -31,6 +34,10 @@ function ScalesQuiz() {
     setShowNextButton(false);
     setSelectedChoice(null);
     setCountdownStarted(true);
+
+    console.log(currentQuestion);
+    console.log(lastQuestionIndex);
+    console.log(questiondata.length - 1);
   };
 
   const handleSelectChoice = (event) => {
@@ -40,16 +47,14 @@ function ScalesQuiz() {
 
   const handleNext = () => {
     // Check if the selected choice is correct
-    const currentQuestion = questiondata[questionNumber];
-    const isCorrect =
-      currentQuestion.choices[selectedChoice] ===
-      currentQuestion.choices[currentQuestion.answer];
+    //  currentQuestion = questiondata[questionNumber];
+    //const isCorrect =
+    //  currentQuestion.choices[selectedChoice] ===
+    //  currentQuestion.choices[currentQuestion.answer];
 
-    console.log(questionNumber);
-    console.log(lastQuestionIndex);
-
+    console.log(currentQuestion);
     // Move to the next question or end of the quiz
-    if (questionNumber === lastQuestionIndex) {
+    if (currentQuestion.lastPosition === true) {
       setQuizOver(true);
       setShowNextButton('Submit');
       setShowChoices(false);
@@ -82,10 +87,6 @@ function ScalesQuiz() {
     return () => clearInterval(intervalId);
   }, [countdown, countdownStarted, handleNext]);
 
-  const currentQuestion = questiondata.filter((q) => q.type === 4)[
-    questionNumber
-  ];
-
   return (
     <div>
       <div className="container items-left px-24">
@@ -114,7 +115,7 @@ function ScalesQuiz() {
               >
                 {currentQuestion.lastPosition === true &&
                 currentQuestion.type === 4
-                  ? 'ส่งแบบประเมิน1'
+                  ? 'ส่งแบบประเมิน'
                   : 'ถัดไป'}
               </button>
             )}

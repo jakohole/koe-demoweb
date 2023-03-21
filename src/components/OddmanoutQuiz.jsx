@@ -19,12 +19,19 @@ function OddmanoutQuiz() {
     const questionIndex = parseInt(event.target.name.split('-')[1]);
     const choiceIndex = parseInt(event.target.value);
     const updatedChoices = [...selectedChoices];
-    updatedChoices[questionIndex] = [
-      ...selectedChoices[questionIndex],
-      choiceIndex,
-    ];
+    if (selectedChoices[questionIndex].includes(choiceIndex)) {
+      updatedChoices[questionIndex] = selectedChoices[questionIndex].filter(
+        (choice) => choice !== choiceIndex
+      );
+    } else {
+      updatedChoices[questionIndex] = [
+        ...selectedChoices[questionIndex],
+        choiceIndex,
+      ];
+    }
     setSelectedChoices(updatedChoices);
   };
+
   const handleSubmit = () => {
     navigate('/power');
     window.scrollTo(0, 0);
