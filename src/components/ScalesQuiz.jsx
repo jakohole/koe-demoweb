@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '.././styles/Introduction.css';
 import '../styles/App.css';
 import Timer from './Timer';
-import questions from '../model/questiondata';
+import questiondata from '../model/questiondata';
 import { useNavigate } from 'react-router-dom';
 import TenScalesChoices from './TenScalesChoices';
 
@@ -14,7 +14,17 @@ function ScalesQuiz() {
   const [countdownStarted, setCountdownStarted] = useState(false);
   const [questionNumber, setQuestionNumber] = useState(0);
   const [quizOver, setQuizOver] = useState(false);
-  const [buttonText, setButtonText] = useState('Nex');
+  const [buttonText, setButtonText] = useState('Next');
+  const [countdown, setCountdown] = useState(20);
+  const [lastQuestionIndex, setLastQuestionIndex] = useState(-1);
+
+  useEffect(() => {
+    // Initialize the lastQuestionIndex state variable
+    const lastQuestion = questiondata.filter((q) => q.lastPosition)[0];
+    const lastQuestionIndex = questiondata.indexOf(lastQuestion);
+    setLastQuestionIndex(lastQuestionIndex);
+    console.log(lastQuestion);
+  }, []);
 
   const handleShowChoices = () => {
     setShowChoices(true);
@@ -30,33 +40,27 @@ function ScalesQuiz() {
 
   const handleNext = () => {
     // Check if the selected choice is correct
-    const currentQuestion = questions[questionNumber];
+    const currentQuestion = questiondata[questionNumber];
     const isCorrect =
       currentQuestion.choices[selectedChoice] ===
       currentQuestion.choices[currentQuestion.answer];
+
+    console.log(questionNumber);
+    console.log(lastQuestionIndex);
+
     // Move to the next question or end of the quiz
-    const lastQuestionWithType4 = questions.filter((q) => q.type === 4).pop();
-    console.log(questions.length)
-    console.log('q'+questionNumber)
-    //const lastQuestionIndexWithType4 = questions.indexOf(lastQuestionWithType4);
-    if (lastQuestionWithType4.lastPosition === true) {
+    if (questionNumber === lastQuestionIndex) {
       setQuizOver(true);
-      //setButtonText('Next Part');
-      navigate('/lastpage');
       setShowNextButton('Submit');
       setShowChoices(false);
       setCountdown(20);
-      //console.log(lastQuestionWithType4);
+      navigate('/lastpage');
     } else {
       setQuestionNumber(questionNumber + 1);
       setShowChoices(false);
       setShowNextButton(false);
       setSelectedChoice(null);
       setCountdownStarted(false);
-      //setButtonText('Next');
-      console.log(currentQuestion);
-      console.log(currentQuestion.lastPosition);
-      console.log(lastQuestionWithType4.lastPosition);
     }
     setCountdown(20);
   };
@@ -64,7 +68,7 @@ function ScalesQuiz() {
     navigate('/lastpage');
   };
 
-  const [countdown, setCountdown] = useState(20);
+  //const [countdown, setCountdown] = useState(20);
   {
   }
   useEffect(() => {
@@ -78,7 +82,9 @@ function ScalesQuiz() {
     return () => clearInterval(intervalId);
   }, [countdown, countdownStarted, handleNext]);
 
-  const currentQuestion = questions.filter((q) => q.type === 4)[questionNumber];
+  const currentQuestion = questiondata.filter((q) => q.type === 4)[
+    questionNumber
+  ];
 
   return (
     <div>
