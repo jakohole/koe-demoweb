@@ -70,13 +70,16 @@ function SpeedQuiz() {
 
   return (
     <div className="container items-left px-24 py-10" id="speedquiz">
-      <p className="text-lg text-left">{currentQuestion.question}</p>
+      <p className="text-lg text-left text-white">{currentQuestion.question}</p>
       {currentQuestion && showChoices ? (
         <div className="mt-2 text-lg ">
           <Timer countdown={countdown} />
           {showChoices &&
             currentQuestion.choices.map((choice, index) => (
-              <div key={index} className="flex items-center px-10 py-4">
+              <div
+                key={index}
+                className="flex items-center px-10 py-4 text-white"
+              >
                 <input
                   type="radio"
                   id={`choice-${index}`}

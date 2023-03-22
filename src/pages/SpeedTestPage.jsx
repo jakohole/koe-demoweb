@@ -31,12 +31,15 @@ function SpeedTestPage() {
         <img
           src={KeenProfileLogo}
           alt="KeenProfile Logo"
-          className="h-16 md:h-20 absolute top-2 left-2 md:top-4 md:left-4 "
+          className="sm:h-14 md:h-18 absolute top-2 left-2 md:top-4 md:left-4 "
         />
       </div>
       <div className="flex flex-col items-center justify-center">
         {showTitle && (
-          <div className="inline-flex items-start justify-center px-24 pt-26 mt-10 mb-4">
+          <div className="flex flex-col justify-center px-24 pt-26 mt-6 mb-4 text-center">
+            <p className="font-ibm-plex-san-thai text-5xl font-bold text-white">
+              แบบประเมินจริยธรรมองค์กร
+            </p>
             <p className="font-gothic text-4xl font-bold text-white">
               Part 1-1 - Moral Temptation : Speed Test
             </p>

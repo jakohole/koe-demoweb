@@ -5,13 +5,13 @@ function Introduction() {
   return (
     <div className="flex flex-col items-center justify-center ">
       <div
-        className="flex flex-col items-start justify-end bg-white shadow rounded-lg text-sm"
+        className="flex flex-col items-start justify-end bg-white shadow rounded-lg "
         id="introduction1"
       >
-        <p className="px-4 py-4 text-sm">
+        <p className="px-4 py-4 text-base">
           แบบประเมินชุดนี้ประกอบไปด้วยข้อคำถามทั้งหมด 2 พาร์ทหลัก ได้แก่
         </p>
-        <ul className="text-left px-4">
+        <ul className="text-left px-4 text-base">
           <li className="py-2">
             ข้อคำถามเพื่อวัด{' '}
             <span className="font-semibold">
@@ -59,10 +59,10 @@ function Introduction() {
             </ul>
           </li>
         </ul>
-        <p className="px-4 py-2 text-sm">
+        <p className="px-4 py-2 text-base">
           ข้อคำถามทั้งหมดจะใช้ระยะเวลาในการทำทั้งสิ้นประมาณ 2 ชั่วโมง
         </p>
-        <p className="px-4 py-2 text-sm">
+        <p className="px-4 py-2 text-base">
           ซึ่งคำอธิบายทั้งหมดจะปรากฎขึ้นอีกครั้งเมื่อคุณมาถึงข้อคำถามในแต่ละพาร์ท
         </p>
       </div>

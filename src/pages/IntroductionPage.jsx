@@ -17,10 +17,10 @@ function IntroductionPage() {
         <img
           src={KeenProfileLogo}
           alt="KeenProfile Logo"
-          className="h-16 md:h-20 absolute top-2 left-2 md:top-4 md:left-4 "
+          className="sm:h-14 md:h-18  absolute top-2 left-2 md:top-4 md:left-4 "
         />
-        <p className="font-gothic text-5xl font-bold text-white mt-10">
-          KEEN Organizational Ethics Assessment
+        <p className="font-ibm-plex-san-thai text-5xl font-bold text-white mt-6">
+          แบบประเมินจริยธรรมองค์กร
         </p>
       </div>
       <div className="flex flex-col items-center justify-center">

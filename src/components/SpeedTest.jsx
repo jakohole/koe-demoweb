@@ -5,11 +5,11 @@ function SpeedTest() {
   return (
     <div className="flex flex-col items-center justify-center ">
       <div
-        className="flex flex-col items-start justify-end bg-white shadow rounded-lg text-sm"
+        className="flex flex-col items-start justify-end bg-white shadow rounded-lg text-base"
         id="speedtest1"
       >
-        <p className="px-4 py-4 text-lg">คำอธิบาย</p>
-        <ul className="text-left px-8 list-disc text-lg">
+        <p className="px-4 py-4 text-base">คำอธิบาย</p>
+        <ul className="text-left px-8 list-disc text-base">
           <li className="py-2">
             คุณมีเวลาทั้งหมด <span className="font-semibold">20 วินาที </span>
             ในการตอบคำถามแต่ละข้อ
