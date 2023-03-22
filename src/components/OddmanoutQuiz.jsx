@@ -76,11 +76,11 @@ function OddmanoutQuiz() {
           <div
             key={index}
             ref={(el) => (questionRefs.current[index] = el)}
-            className="bg-transparent rounded-md shadow-lg p-4 mb-4"
+            className="bg-transparent rounded-xl shadow-xl p-4 mb-4"
           >
-            <p className="text-lg text-left">{question.question}</p>
+            <p className="text-lg text-left text-white">{question.question}</p>
             {question.choices.map((choice, choiceIndex) => (
-              <div key={choiceIndex} className="my-4 flex text-left">
+              <div key={choiceIndex} className="my-4 flex text-left text-white">
                 {
                   //Create multiple box choice
                 }
@@ -95,7 +95,7 @@ function OddmanoutQuiz() {
                 />
                 <label
                   htmlFor={`question-${index}-choice-${choiceIndex}`}
-                  className="text-gray-700"
+                  className="text-white"
                 >
                   {choice}
                 </label>

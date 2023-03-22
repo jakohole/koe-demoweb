@@ -61,7 +61,7 @@ function TenScalesChoices() {
             </p>
           </div>
           {index === 4 && (
-            <p className="text-left text-gray-500 text-sm">
+            <p className="text-right1 text-gray-500 text-sm">
               {'ความเข้มงวด (Rigour)'}
             </p>
           )}
