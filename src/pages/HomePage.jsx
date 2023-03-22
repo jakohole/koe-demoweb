@@ -51,16 +51,17 @@ function HomePage() {
           </div>
         </div>
       )}
-      <div className="inline-flex items-start justify-center px-24 pt-26 mt-12 ">
-        <img
-          src="//content.keenprofile.com/wp-content/uploads/2018/04/favicon.png"
-          className="w-1/2 h-1/2"
-        />
 
-        <p className="font-gothic text-xs font-bold text-gray-100 pt-10">
-          Powered by KEEN Profile Thailand
-        </p>
-      </div>
+<div className="inline-flex items-start justify-center px-24 pt-26 mt-12 flex">
+  <p className="font-gothic text-xs font-bold text-gray-100 pt-10 self-center">
+    <img
+      src="//content.keenprofile.com/wp-content/uploads/2018/04/favicon.png"
+      className="h-5 mr-2"
+    />
+    Powered by KEEN Profile Thailand
+  </p>
+</div>
+
     </div>
   );
 }
