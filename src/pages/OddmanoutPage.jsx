@@ -22,7 +22,7 @@ function OddmanoutPage() {
         <p className="font-gothic text-4xl font-bold text-white">
           Part 1-2 - Moral Temptations : Odd Man Out
         </p>
-        <div className="w-full mx-auto mt-8 mb-4">
+        <div className="w-full mx-auto mt-8 mb-2">
           <Instruction />
           <button
             onClick={scrollToQuiz}
@@ -33,7 +33,7 @@ function OddmanoutPage() {
         </div>
       </div>
       <div className="container mx-auto" id="oddmanout-quiz">
-        <div className="max-w-4xl mx-auto pt-20">
+        <div className="max-w-4xl mx-auto py-20">
           <OddmanoutQuiz />
         </div>
       </div>

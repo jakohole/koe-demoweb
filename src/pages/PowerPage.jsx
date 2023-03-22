@@ -3,6 +3,7 @@ import Instruction from '../components/PowerInstruction';
 import PowerQuiz from '../components/PowerQuiz';
 //import Instruction from './Instruction';
 import Quiz from '../components/OddmanoutQuiz.jsx';
+import KeenProfileLogo from '../assets/keen.svg';
 
 function PowerPage() {
   const scrollToQuiz = () => {
@@ -13,10 +14,17 @@ function PowerPage() {
   return (
     <div className="w-full top-24 left-0  z-10 ">
       <div className="container mx-auto mt-10 ">
+      <div className="flex items-center justify-center">
+        <img
+          src={KeenProfileLogo}
+          alt="KeenProfile Logo"
+          className="h-16 md:h-20 absolute top-2 left-2 md:top-4 md:left-4 "
+        />
+      </div>
         <p className="font-gothic text-4xl font-bold text-white">
           Part 2-1 - Ethical Directions : Power Test
         </p>
-        <div className="w-full mx-auto mt-8">
+        <div className="w-full mx-auto mt-8 mb-4">
           <Instruction />
           <button
             onClick={scrollToQuiz}
@@ -27,7 +35,7 @@ function PowerPage() {
         </div>
       </div>
       <div className="mx-auto" id="power-quiz">
-        <div className="max-w-4xl mx-auto py-8">
+        <div className="max-w-4xl mx-auto pt-20">
           <PowerQuiz />
         </div>
       </div>
