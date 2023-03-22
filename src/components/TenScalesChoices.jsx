@@ -31,9 +31,16 @@ function TenScalesChoices() {
               {5 - index}
             </p>
           </div>
+          {index === 0 && (
+            <p className="text-left text-gray-500 text-sm">
+              {'การปรับตัว (Adaptation)'}
+            </p>
+          )}
         </div>
       ))}
-      <div className="w-40 h-full"></div>
+      <div className="w-10/5 h-full">
+        <div className="flex items-center justify-center flex-1 h-full px-4 pt-6 pb-8"></div>
+      </div>
       {[...Array(5)].map((_, index) => (
         <div
           key={index}
@@ -53,6 +60,11 @@ function TenScalesChoices() {
               {index + 1}
             </p>
           </div>
+          {index === 4 && (
+            <p className="text-left text-gray-500 text-sm">
+              {'ความเข้มงวด (Rigour)'}
+            </p>
+          )}
         </div>
       ))}
     </div>

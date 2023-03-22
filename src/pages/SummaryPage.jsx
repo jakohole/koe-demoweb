@@ -14,7 +14,7 @@ function SummaryPage() {
           />
         </div>
         <div className="inline-flex items-start px-24 pt-26 mt-8 mb-2">
-          <p className="font-ibm-plex-sans-thai text-6xl font-bold text-white">
+          <p className="font-ibm-plex-sans-thai text-4xl font-bold text-white">
             การทำแบบทดสอบของท่านเรียบร้อยแล้ว
           </p>
         </div>
