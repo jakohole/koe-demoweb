@@ -90,9 +90,11 @@ function ScalesQuiz() {
   return (
     <div>
       <div className="container items-left px-24 py-10">
-        <p className="text-lg text-left">{currentQuestion.question}</p>
+        <p className="text-base text-left text-white">
+          {currentQuestion.question}
+        </p>
         {currentQuestion && showChoices ? (
-          <div className="mt-2 text-lg">
+          <div className="mt-2 text-base ">
             {<Timer countdown={countdown} />}
             {showChoices && (
               <TenScalesChoices
