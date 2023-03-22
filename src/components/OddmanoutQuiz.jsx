@@ -76,7 +76,7 @@ function OddmanoutQuiz() {
           <div
             key={index}
             ref={(el) => (questionRefs.current[index] = el)}
-            className="bg-transparent rounded-xl shadow-xl p-4 mb-4"
+            className="bg-transparent rounded-xl shadow-2xl p-6 mb-4"
           >
             <p className="text-lg text-left text-white">{question.question}</p>
             {question.choices.map((choice, choiceIndex) => (
