@@ -15,13 +15,13 @@ function OddmanoutPage() {
         <img
           src={KeenProfileLogo}
           alt="KeenProfile Logo"
-          className="sm:h-14 md:h-16 absolute top-2 left-2 md:top-4 md:left-4 "
+          className="sm:h-14 md:h-18 absolute top-2 left-2 md:top-4 md:left-4 "
         />
       </div>
       <div className="container mx-auto mt-6 ">
-      <p className="font-ibm-plex-san-thai text-5xl font-bold text-white">
-              แบบประเมินจริยธรรมองค์กร
-            </p>
+        <p className="font-ibm-plex-san-thai text-5xl font-bold text-white">
+          แบบประเมินจริยธรรมองค์กร
+        </p>
         <p className="font-gothic text-4xl font-bold text-white">
           Part 1-2 - Moral Temptations : Odd Man Out
         </p>

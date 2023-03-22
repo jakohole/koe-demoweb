@@ -13,14 +13,17 @@ function PowerPage() {
 
   return (
     <div className="w-full top-24 left-0  z-10 ">
-      <div className="container mx-auto mt-10 ">
-      <div className="flex items-center justify-center">
-        <img
-          src={KeenProfileLogo}
-          alt="KeenProfile Logo"
-          className="h-16 md:h-20 absolute top-2 left-2 md:top-4 md:left-4 "
-        />
-      </div>
+      <div className="container mx-auto mt-6 ">
+        <div className="flex items-center justify-center">
+          <img
+            src={KeenProfileLogo}
+            alt="KeenProfile Logo"
+            className="sm:h-14 md:h-18 absolute top-2 left-2 md:top-4 md:left-4 "
+          />
+        </div>
+        <p className="font-ibm-plex-san-thai text-5xl font-bold text-white">
+          แบบประเมินจริยธรรมองค์กร
+        </p>
         <p className="font-gothic text-4xl font-bold text-white">
           Part 2-1 - Ethical Directions : Power Test
         </p>
