@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
-import '../styles/IntroductionPage.css';
+//import '../styles/IntroductionPage.css';
 import SpeedTest from '../components/SpeedTest';
 import SpeedQuiz from '../components/SpeedQuiz';
-import '../styles/App.css';
-import '../styles/Quiz.css';
+//import '../styles/App.css';
+//import '../styles/Quiz.css';
+import KeenProfileLogo from '../assets/keen.svg';
 
 function SpeedTestPage() {
   const [showQuiz, setShowQuiz] = useState(false);
@@ -26,6 +27,13 @@ function SpeedTestPage() {
 
   return (
     <div>
+      <div className="flex items-center justify-center">
+        <img
+          src={KeenProfileLogo}
+          alt="KeenProfile Logo"
+          className="h-16 md:h-20 absolute top-2 left-2 md:top-4 md:left-4 "
+        />
+      </div>
       <div className="flex flex-col items-center justify-center">
         {showTitle && (
           <div className="inline-flex items-start justify-center px-24 pt-26 mt-10 mb-4">

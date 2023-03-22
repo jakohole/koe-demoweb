@@ -69,7 +69,7 @@ function SpeedQuiz() {
   const currentQuestion = questions.filter((q) => q.type === 1)[questionNumber];
 
   return (
-    <div className="container items-left px-24" id="speedquiz">
+    <div className="container items-left px-24 py-10" id="speedquiz">
       <p className="text-lg text-left">{currentQuestion.question}</p>
       {currentQuestion && showChoices ? (
         <div className="mt-2 text-lg ">
