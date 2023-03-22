@@ -103,7 +103,14 @@ function ScalesQuiz() {
                 handleSelectChoice={handleSelectChoice}
               />
             )}
-
+            <div className="flex justify-between">
+              <p className="text-left text-gray-500 text-base">
+                {currentQuestion.desc[0]}
+              </p>
+              <p className="text-right text-gray-500 text-base">
+                {currentQuestion.desc[1]}
+              </p>
+            </div>
             {showNextButton && showNextButton === 'Submit' ? (
               <button
                 className="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 mt-4 rounded-full"
