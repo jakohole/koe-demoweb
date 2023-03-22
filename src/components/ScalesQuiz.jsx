@@ -89,7 +89,7 @@ function ScalesQuiz() {
 
   return (
     <div>
-      <div className="container items-left px-24 ">
+      <div className="container items-left px-24 py-10">
         <p className="text-lg text-left">{currentQuestion.question}</p>
         {currentQuestion && showChoices ? (
           <div className="mt-2 text-lg">

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import ScalesInstruction from '../components/ScalesInstruction';
 import ScalesQuiz from '../components/ScalesQuiz';
 //import SpeedQuiz from '../components/SpeedQuiz';
+import KeenProfileLogo from '../assets/keen.svg';
 
 function ScalesTestPage() {
   const [showQuiz, setShowQuiz] = useState(false);
@@ -24,6 +25,13 @@ function ScalesTestPage() {
 
   return (
     <div>
+      <div className="flex items-center justify-center">
+        <img
+          src={KeenProfileLogo}
+          alt="KeenProfile Logo"
+          className="h-16 md:h-20 absolute top-2 left-2 md:top-4 md:left-4 "
+        />
+      </div>
       <div className="flex flex-col items-center justify-center">
         {showTitle && (
           <div className="inline-flex items-start justify-center px-24 pt-26 mt-10 mb-4">
