@@ -7,8 +7,8 @@ function ScalesInstruction() {
         className="flex flex-col items-start justify-end bg-white shadow rounded-lg"
         id="speedtest1"
       >
-        <p className="px-4 py-4 text-lg">คำอธิบาย</p>
-        <ul className="text-left px-8 list-disc">
+        <p className="px-4 py-4 text-base">คำอธิบาย</p>
+        <ul className="text-left text-base px-8 list-disc">
           <li className="py-2">
             คุณมีเวลาทั้งหมด <span className="font-semibold">20 วินาที </span>
             ในการตอบคำถามแต่ละข้อ
