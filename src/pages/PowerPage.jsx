@@ -29,7 +29,7 @@ function PowerPage() {
             </span>
           </p>
           <p>
-            ในรูปแบบของข้อคำถามให้เวลาเต็มที่ (Power test){' '}
+            ในรูปแบบของข้อคำถามให้เวลาเต็มที่{' '}
             <span className="font-gothic text-2xl font-bold text-white">
               (Power test)
             </span>{' '}

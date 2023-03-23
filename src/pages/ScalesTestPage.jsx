@@ -36,10 +36,18 @@ function ScalesTestPage() {
         {showTitle && (
           <div className="inline-flex flex-col justify-center px-24 pt-26 mt-6 mb-4">
             <p className="font-ibm-plex-san-thai text-5xl font-bold text-white">
-              แบบประเมินจริยธรรมองค์กร
-            </p>
-            <p className="font-gothic text-4xl font-bold text-white">
-              Part 2-2 - Ethical Directions : 10 Point-Scales Self Assessment
+            <p>
+            พาร์ท 2.1 คำถามเพื่อวัดสถานการณ์ทางเลือกด้านจริยธรรม{' '}
+            <span className="font-gothic text-2xl font-bold text-white">
+              (Ethical Direction)
+            </span>
+          </p>
+          <p>
+            ในรูปแบบของข้อคำถามใช้ความเร็ว{' '}
+            <span className="font-gothic text-2xl font-bold text-white">
+              (Speed test)
+            </span>{' '}
+          </p>
             </p>
           </div>
         )}
