@@ -19,17 +19,25 @@ function OddmanoutPage() {
         />
       </div>
       <div className="container mx-auto mt-6 ">
-        <p className="font-ibm-plex-san-thai text-5xl font-bold text-white">
-          แบบประเมินจริยธรรมองค์กร
+        <p className="font-ibm-plex-san-thai text-2xl font-bold text-white">
+          <p>
+            พาร์ท 1.2 คำถามเพื่อวัดมาตรฐานทางด้านศีลธรรม{' '}
+            <span className="font-gothic text-2xl font-bold text-white">
+              (Moral Temptation)
+            </span>
+          </p>
+          <p>
+            ในรูปแบบของข้อคำถามเลือกสิ่งที่ผิด{' '}
+            <span className="font-gothic text-2xl font-bold text-white">
+              (Odd man out)
+            </span>{' '}
+          </p>
         </p>
-        <p className="font-gothic text-4xl font-bold text-white">
-          Part 1-2 - Moral Temptations : Odd Man Out
-        </p>
-        <div className="w-full mx-auto mt-8 mb-2">
+        <div className="w-full mx-auto mt-8 mb-6">
           <Instruction />
           <button
             onClick={scrollToQuiz}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full "
           >
             เริ่มทำแบบประเมิน
           </button>
