@@ -82,7 +82,7 @@ function PowerQuiz() {
   );
 
   const handleSubmit = useCallback(() => {
-    navigate('/power');
+    navigate('/scalestest');
     window.scrollTo(0, 0);
   }, [navigate]);
 

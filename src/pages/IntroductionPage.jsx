@@ -30,7 +30,7 @@ function IntroductionPage() {
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full"
             onClick={navigateToNext}
           >
-            เข้าสู่แบบประเมิน
+            ถัดไป
           </button>
         </div>
       </div>
