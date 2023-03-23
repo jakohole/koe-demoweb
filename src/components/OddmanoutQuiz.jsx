@@ -12,8 +12,22 @@ function OddmanoutQuiz() {
   const [currentQuestion, setCurrentQuestion] = useState(
     questions.findIndex((q) => q.type === 2)
   );
+
+  const [activeQuestionIndex, setActiveQuestionIndex] = useState(0);
+
   //Create questionRefs variable
   const questionRefs = useRef([]);
+  const handleScroll = () => {
+    const newActiveQuestionIndex = questionRefs.current.findIndex((el) => {
+      const { top, bottom } = el.getBoundingClientRect();
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      return top <= windowHeight / 2 && bottom >= windowHeight / 2;
+    });
+
+    if (newActiveQuestionIndex >= 0 && newActiveQuestionIndex !== activeQuestionIndex) {
+      setActiveQuestionIndex(newActiveQuestionIndex);
+    }
+  };
   //Create handleSelectChoice function
   const handleSelectChoice = (event) => {
     const questionIndex = parseInt(event.target.name.split('-')[1]);
@@ -36,29 +50,7 @@ function OddmanoutQuiz() {
     navigate('/power');
     window.scrollTo(0, 0);
   };
-  //Create handleNextQuestion function
-  /*
-  const handleNextQuestion = () => {
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-      questionRefs.current[currentQuestion + 1].scrollIntoView({
-        behavior: 'smooth',
-      });
-    } else {
-      navigate('/power');
-    }
-  };*/
-  /*
-  function isInView(element) {
-    const rect = element.getBoundingClientRect();
-    const windowHeight =
-      window.innerHeight || document.documentElement.clientHeight;
-    const windowWidth =
-      window.innerWidth || document.documentElement.clientWidth;
-    const vertInView = rect.top <= windowHeight && rect.top + rect.height >= 0;
-    const horInView = rect.left <= windowWidth && rect.left + rect.width >= 0;
-    return vertInView && horInView;
-  }
+ /*
   useEffect(() => {
     const currentQuestionRef = questionRefs.current[currentQuestion];
     if (!isInView(currentQuestionRef)) {
@@ -76,14 +68,15 @@ function OddmanoutQuiz() {
           <div
             key={index}
             ref={(el) => (questionRefs.current[index] = el)}
-            className="bg-transparent rounded-xl shadow-2xl p-6 mb-4"
+            className={`bg-transparent rounded-xl shadow-2xl p-6 mb-4 ${
+              index === activeQuestionIndex ? "" : "opacity-50 pointer-events-none"
+            }`}
           >
-            <p className="text-base text-left text-white">{question.question}</p>
+            <p className="text-base text-left text-white">
+              {question.question} {index}
+            </p>
             {question.choices.map((choice, choiceIndex) => (
               <div key={choiceIndex} className="my-4 flex text-left text-white">
-                {
-                  //Create multiple box choice
-                }
                 <input
                   type="checkbox"
                   id={`question-${index}-choice-${choiceIndex}`}
@@ -92,7 +85,9 @@ function OddmanoutQuiz() {
                   checked={selectedChoices[index].includes(choiceIndex)}
                   onChange={handleSelectChoice}
                   className="mr-2"
+                  disabled={index !== activeQuestionIndex}
                 />
+  
                 <label
                   htmlFor={`question-${index}-choice-${choiceIndex}`}
                   className="text-white"
