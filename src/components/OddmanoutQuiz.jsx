@@ -20,14 +20,26 @@ function OddmanoutQuiz() {
   const handleScroll = () => {
     const newActiveQuestionIndex = questionRefs.current.findIndex((el) => {
       const { top, bottom } = el.getBoundingClientRect();
-      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      const windowHeight =
+        window.innerHeight || document.documentElement.clientHeight;
       return top <= windowHeight / 2 && bottom >= windowHeight / 2;
     });
 
-    if (newActiveQuestionIndex >= 0 && newActiveQuestionIndex !== activeQuestionIndex) {
+    if (
+      newActiveQuestionIndex >= 0 &&
+      newActiveQuestionIndex !== activeQuestionIndex
+    ) {
       setActiveQuestionIndex(newActiveQuestionIndex);
     }
   };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   //Create handleSelectChoice function
   const handleSelectChoice = (event) => {
     const questionIndex = parseInt(event.target.name.split('-')[1]);
@@ -50,15 +62,7 @@ function OddmanoutQuiz() {
     navigate('/power');
     window.scrollTo(0, 0);
   };
- /*
-  useEffect(() => {
-    const currentQuestionRef = questionRefs.current[currentQuestion];
-    if (!isInView(currentQuestionRef)) {
-      currentQuestionRef.scrollIntoView({
-        behavior: 'smooth',
-      });
-    }
-  }, [currentQuestion]);*/
+
   //Return OddmanoutQuiz component
   return (
     <div className="container px-8 py-8">
@@ -69,7 +73,9 @@ function OddmanoutQuiz() {
             key={index}
             ref={(el) => (questionRefs.current[index] = el)}
             className={`bg-transparent rounded-xl shadow-2xl p-6 mb-4 ${
-              index === activeQuestionIndex ? "" : "opacity-50 pointer-events-none"
+              index === activeQuestionIndex
+                ? ''
+                : 'opacity-50 pointer-events-none'
             }`}
           >
             <p className="text-base text-left text-white">
@@ -87,7 +93,7 @@ function OddmanoutQuiz() {
                   className="mr-2"
                   disabled={index !== activeQuestionIndex}
                 />
-  
+
                 <label
                   htmlFor={`question-${index}-choice-${choiceIndex}`}
                   className="text-white"
