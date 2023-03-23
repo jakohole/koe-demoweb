@@ -17,7 +17,7 @@ function PowerQuiz() {
   );
   //Create currentQuestion variable
   const currentQuestionIndex = useMemo(
-    () => questions.findIndex((q) => q.type === 2),
+    () => questions.findIndex((q) => q.type === 3),
     [questions]
   );
   const [activeQuestionIndex, setActiveQuestionIndex] =
@@ -32,7 +32,6 @@ function PowerQuiz() {
         window.innerHeight || document.documentElement.clientHeight;
       return top <= windowHeight / 2 && bottom >= windowHeight / 2;
     });
-    console.log(newActiveQuestionIndex);
     if (
       newActiveQuestionIndex >= 0 &&
       newActiveQuestionIndex !== activeQuestionIndex
@@ -98,9 +97,6 @@ function PowerQuiz() {
                 key={choiceIndex}
                 className="my-4 flex flex-row text-left text-base text-white"
               >
-                {
-                  //Create multiple box choice
-                }
                 <input
                   type="radio"
                   id={`question-${index}-choice-${choiceIndex}`}
