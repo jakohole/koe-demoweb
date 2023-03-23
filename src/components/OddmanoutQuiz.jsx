@@ -1,47 +1,48 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useRef,
+  useMemo,
+  useCallback,
+} from 'react';
 import questions from '../model/questiondata';
 import { useNavigate } from 'react-router-dom';
 
 //Create OddmanoutQuiz component
 function OddmanoutQuiz() {
-  //Create navigate variable
   const navigate = useNavigate();
-  //Create selectedChoices variable
-  const [selectedChoices, setSelectedChoices] = useState(Array(3).fill([]));
-  //Create currentQuestion variable
-  const [currentQuestion, setCurrentQuestion] = useState(
-    questions.findIndex((q) => q.type === 2)
+  const [selectedChoices, setSelectedChoices] = useState(Array.from({ length: questions.length }, () => []));
+  const currentQuestionIndex = useMemo(
+    () => questions.findIndex((q) => q.type === 2),
+    [questions]
   );
-
-  const [activeQuestionIndex, setActiveQuestionIndex] = useState(0);
-
-  //Create questionRefs variable
+  const [activeQuestionIndex, setActiveQuestionIndex] = useState(currentQuestionIndex);
   const questionRefs = useRef([]);
-  const handleScroll = () => {
+
+  const handleScroll = useCallback(() => {
     const newActiveQuestionIndex = questionRefs.current.findIndex((el) => {
       const { top, bottom } = el.getBoundingClientRect();
-      const windowHeight =
-        window.innerHeight || document.documentElement.clientHeight;
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
       return top <= windowHeight / 2 && bottom >= windowHeight / 2;
     });
 
-    if (
-      newActiveQuestionIndex >= 0 &&
-      newActiveQuestionIndex !== activeQuestionIndex
-    ) {
+    if (newActiveQuestionIndex >= 0 && newActiveQuestionIndex !== activeQuestionIndex) {
       setActiveQuestionIndex(newActiveQuestionIndex);
     }
-  };
+  }, [activeQuestionIndex]);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [handleScroll]);
 
-  //Create handleSelectChoice function
-  const handleSelectChoice = (event) => {
+  useEffect(() => {
+    setActiveQuestionIndex(currentQuestionIndex);
+  }, [currentQuestionIndex]);
+
+  const handleSelectChoice = useCallback((event) => {
     const questionIndex = parseInt(event.target.name.split('-')[1]);
     const choiceIndex = parseInt(event.target.value);
     const updatedChoices = [...selectedChoices];
@@ -50,39 +51,37 @@ function OddmanoutQuiz() {
         (choice) => choice !== choiceIndex
       );
     } else {
-      updatedChoices[questionIndex] = [
-        ...selectedChoices[questionIndex],
+      updatedChoices[questionIndex] = [        ...selectedChoices[questionIndex],
         choiceIndex,
       ];
     }
     setSelectedChoices(updatedChoices);
-  };
+  }, [selectedChoices]);
 
-  const handleSubmit = () => {
+  const handleSubmit = useCallback(() => {
     navigate('/power');
     window.scrollTo(0, 0);
-  };
+  }, [navigate]);
 
-  //Return OddmanoutQuiz component
   return (
-    <div className="container px-8 py-8">
+    <div className="md:container px-6 py-8">
       {questions
         .filter((question) => question.type === 2)
         .map((question, index) => (
           <div
             key={index}
             ref={(el) => (questionRefs.current[index] = el)}
-            className={`bg-transparent rounded-xl shadow-2xl p-6 mb-4 ${
+            className={`flex-col mb-20 ${
               index === activeQuestionIndex
                 ? ''
                 : 'opacity-50 pointer-events-none'
             }`}
           >
             <p className="text-base text-left text-white">
-              {question.question} {index}
+              {question.question}
             </p>
             {question.choices.map((choice, choiceIndex) => (
-              <div key={choiceIndex} className="my-4 flex text-left text-white">
+              <div key={choiceIndex} className="my-4 flex flex-row text-left text-white">
                 <input
                   type="checkbox"
                   id={`question-${index}-choice-${choiceIndex}`}
@@ -104,7 +103,8 @@ function OddmanoutQuiz() {
             ))}
           </div>
         ))}
-      <div>
+      <div className="md:container "></div>
+      <div className="md:container py-6">
         <button
           onClick={handleSubmit}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"

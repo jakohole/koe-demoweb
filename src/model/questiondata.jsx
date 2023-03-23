@@ -59,6 +59,18 @@ const QuestionData = [
       'คำตอบที่ 5',
     ],
     type: 2,
+    lastPosition: false,
+  },
+  {
+    question: '4.คำถาม',
+    choices: [
+      'คำตอบที่ 1',
+      'คำตอบที่ 2',
+      'คำตอบที่ 3',
+      'คำตอบที่ 4',
+      'คำตอบที่ 5',
+    ],
+    type: 2,
     lastPosition: true,
   },
   {
