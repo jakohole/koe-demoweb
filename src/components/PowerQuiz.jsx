@@ -32,7 +32,7 @@ function PowerQuiz() {
         window.innerHeight || document.documentElement.clientHeight;
       return top <= windowHeight / 2 && bottom >= windowHeight / 2;
     });
-
+    console.log(newActiveQuestionIndex);
     if (
       newActiveQuestionIndex >= 0 &&
       newActiveQuestionIndex !== activeQuestionIndex
@@ -65,6 +65,10 @@ function PowerQuiz() {
         behavior: 'smooth',
         block: 'start',
       });
+    }
+    const secondLastQuestionIndex = questions.length - 2;
+    if (questionIndex === secondLastQuestionIndex) {
+      setActiveQuestionIndex(questions.length - 1);
     }
   };
 

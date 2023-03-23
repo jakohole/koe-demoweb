@@ -87,7 +87,7 @@ const QuestionData = [
     question: '2.คำถาม',
     choices: ['คำตอบที่ 1', 'คำตอบที่ 2'],
     type: 3,
-    lastPosition: 0,
+    lastPosition: false,
   },
   {
     question: '3.คำถาม',
