@@ -37,8 +37,8 @@ function PowerPage() {
           </button>
         </div>
       </div>
-      <div className="mx-auto" id="power-quiz">
-        <div className="max-w-4xl mx-auto pt-20">
+      <div className="md:container mx-auto" id="power-quiz">
+        <div className="max-w-4xl mx-auto py-20">
           <PowerQuiz />
         </div>
       </div>

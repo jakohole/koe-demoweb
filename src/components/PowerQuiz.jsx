@@ -9,33 +9,23 @@ import questions from '../model/questiondata';
 import { useNavigate } from 'react-router-dom';
 
 function PowerQuiz() {
-  //Create navigate variable
   const navigate = useNavigate();
-  //Create selectedChoices variable
-  const [selectedChoices, setSelectedChoices] = useState(
-    Array.from({ length: questions.length }, () => [])
-  );
-  //Create currentQuestion variable
+  const [selectedChoices, setSelectedChoices] = useState(Array.from({ length: questions.length }, () => []));
   const currentQuestionIndex = useMemo(
     () => questions.findIndex((q) => q.type === 3),
     [questions]
   );
-  const [activeQuestionIndex, setActiveQuestionIndex] =
-    useState(currentQuestionIndex);
-
-  //Create questionRefs variable
+  const [activeQuestionIndex, setActiveQuestionIndex] = useState(currentQuestionIndex);
   const questionRefs = useRef([]);
+
   const handleScroll = useCallback(() => {
     const newActiveQuestionIndex = questionRefs.current.findIndex((el) => {
       const { top, bottom } = el.getBoundingClientRect();
-      const windowHeight =
-        window.innerHeight || document.documentElement.clientHeight;
+      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
       return top <= windowHeight / 2 && bottom >= windowHeight / 2;
     });
-    if (
-      newActiveQuestionIndex >= 0 &&
-      newActiveQuestionIndex !== activeQuestionIndex
-    ) {
+    console.log(newActiveQuestionIndex)
+    if (newActiveQuestionIndex >= 0 && newActiveQuestionIndex !== activeQuestionIndex) {
       setActiveQuestionIndex(newActiveQuestionIndex);
     }
   }, [activeQuestionIndex]);
@@ -47,36 +37,33 @@ function PowerQuiz() {
     };
   }, [handleScroll]);
 
-  //Create handleSelectChoice function
-  const handleSelectChoice = (event) => {
+  useEffect(() => {
+    setActiveQuestionIndex(currentQuestionIndex);
+  }, [currentQuestionIndex]);
+
+  const handleSelectChoice = useCallback((event) => {
     const questionIndex = parseInt(event.target.name.split('-')[1]);
     const choiceIndex = parseInt(event.target.value);
-    setSelectedChoices(
-      selectedChoices.map((choices, index) =>
-        index === questionIndex ? choiceIndex : choices
-      )
-    );
-
-    // Scroll to next question
-    const nextQuestionIndex = questionIndex + 1;
-    if (nextQuestionIndex < questions.length) {
-      questionRefs.current[nextQuestionIndex].scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
+    const updatedChoices = [...selectedChoices];
+    if (selectedChoices[questionIndex].includes(choiceIndex)) {
+      updatedChoices[questionIndex] = selectedChoices[questionIndex].filter(
+        (choice) => choice !== choiceIndex
+      );
+    } else {
+      updatedChoices[questionIndex] = [        ...selectedChoices[questionIndex],
+        choiceIndex,
+      ];
     }
-    const secondLastQuestionIndex = questions.length - 2;
-    if (questionIndex === secondLastQuestionIndex) {
-      setActiveQuestionIndex(questions.length - 1);
-    }
-  };
+    setSelectedChoices(updatedChoices);
+  }, [selectedChoices]);
 
-  const handleSubmit = () => {
-    navigate('/scalestest');
-  };
+  const handleSubmit = useCallback(() => {
+    navigate('/power');
+    window.scrollTo(0, 0);
+  }, [navigate]);
 
   return (
-    <div className="container px-6 py-8">
+    <div className="md:container px-6 py-8">
       {questions
         .filter((question) => question.type === 3)
         .map((question, index) => (
@@ -93,20 +80,18 @@ function PowerQuiz() {
               {question.question}
             </p>
             {question.choices.map((choice, choiceIndex) => (
-              <div
-                key={choiceIndex}
-                className="my-4 flex flex-row text-left text-base text-white"
-              >
+              <div key={choiceIndex} className="my-4 flex flex-row text-left text-white">
                 <input
                   type="radio"
                   id={`question-${index}-choice-${choiceIndex}`}
                   name={`question-${index}`}
                   value={choiceIndex}
-                  checked={selectedChoices[index] === choiceIndex}
+                  checked={selectedChoices[index].includes(choiceIndex)}
                   onChange={handleSelectChoice}
                   className="mr-2"
                   disabled={index !== activeQuestionIndex}
                 />
+
                 <label
                   htmlFor={`question-${index}-choice-${choiceIndex}`}
                   className="text-white"
