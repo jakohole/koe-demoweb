@@ -37,11 +37,17 @@ function SpeedTestPage() {
       <div className="flex flex-col items-center justify-center">
         {showTitle && (
           <div className="flex flex-col justify-center px-24 pt-26 mt-6 mb-4 text-center">
-            <p className="font-ibm-plex-san-thai text-5xl font-bold text-white">
-              แบบประเมินจริยธรรมองค์กร
-            </p>
-            <p className="font-gothic text-4xl font-bold text-white">
-              Part 1-1 - Moral Temptation : Speed Test
+            <p className="font-ibm-plex-san-thai text-2xl font-bold text-white">
+              พาร์ท 1.1 คำถามเพื่อวัดมาตรฐานทางด้านศีลธรรม{' '}
+              <span className="font-gothic text-2xl font-bold text-white">
+                (Moral Temptation)
+              </span>
+              <p>
+                ในรูปแบบของข้อคำถามใช้ความเร็ว{' '}
+                <span className="font-gothic text-2xl font-bold text-white">
+                  (Speed Test)
+                </span>{' '}
+              </p>
             </p>
           </div>
         )}
