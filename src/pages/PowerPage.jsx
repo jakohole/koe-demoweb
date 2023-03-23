@@ -22,10 +22,18 @@ function PowerPage() {
           />
         </div>
         <p className="font-ibm-plex-san-thai text-5xl font-bold text-white">
-          แบบประเมินจริยธรรมองค์กร
-        </p>
-        <p className="font-gothic text-4xl font-bold text-white">
-          Part 2-1 - Ethical Directions : Power Test
+          <p>
+            พาร์ท 2.1 คำถามเพื่อวัดสถานการณ์ทางเลือกด้านจริยธรรม{' '}
+            <span className="font-gothic text-2xl font-bold text-white">
+              (Ethical Direction)
+            </span>
+          </p>
+          <p>
+            ในรูปแบบของข้อคำถามให้เวลาเต็มที่ (Power test){' '}
+            <span className="font-gothic text-2xl font-bold text-white">
+              (Power test)
+            </span>{' '}
+          </p>
         </p>
         <div className="w-full mx-auto mt-8 mb-4">
           <Instruction />
