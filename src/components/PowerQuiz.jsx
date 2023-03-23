@@ -65,19 +65,17 @@ function PowerQuiz() {
       }
       setSelectedChoices(updatedChoices);
 
-      const newActiveQuestionIndex = questionRefs.current.findIndex(
-        (el, index) => {
-          if (index <= questionIndex) return false;
-          const { top, bottom } = el.getBoundingClientRect();
-          const windowHeight =
-            window.innerHeight || document.documentElement.clientHeight;
-          return top <= windowHeight / 2 && bottom >= windowHeight / 2;
-        }
+      const nextUnansweredIndex = updatedChoices.findIndex(
+        (choices) => choices.length === 0
       );
 
-      if (newActiveQuestionIndex >= 0) {
-        setActiveQuestionIndex(newActiveQuestionIndex);
-        questionRefs.current[newActiveQuestionIndex].scrollIntoView();
+      if (nextUnansweredIndex >= 0) {
+        setActiveQuestionIndex(nextUnansweredIndex);
+        questionRefs.current[nextUnansweredIndex].scrollIntoView({
+          //behavior: 'smooth',
+          behavior: 'smooth',
+          block: 'nearest',
+        });
       }
     },
     [selectedChoices]

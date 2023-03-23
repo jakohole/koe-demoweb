@@ -78,10 +78,7 @@ function SpeedQuiz() {
           <Timer countdown={countdown} />
           {showChoices &&
             currentQuestion.choices.map((choice, index) => (
-              <div
-                key={index}
-                className="flex items-center px-10 py-4 text-white"
-              >
+              <div key={index} className="flex flex-row  py-4 text-white">
                 <input
                   type="radio"
                   id={`choice-${index}`}
