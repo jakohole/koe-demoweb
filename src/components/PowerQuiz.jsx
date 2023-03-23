@@ -73,8 +73,8 @@ function PowerQuiz() {
         setActiveQuestionIndex(nextUnansweredIndex);
         questionRefs.current[nextUnansweredIndex].scrollIntoView({
           //behavior: 'smooth',
-          behavior: 'smooth',
-          block: 'nearest',
+          //behavior: '',
+          block: 'start',
         });
       }
     },
@@ -94,7 +94,7 @@ function PowerQuiz() {
           <div
             key={index}
             ref={(el) => (questionRefs.current[index] = el)}
-            className={`flex-col mb-20 ${
+            className={`flex-col mb-28 ${
               index === activeQuestionIndex
                 ? ''
                 : 'opacity-50 pointer-events-none'
