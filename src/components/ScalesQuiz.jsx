@@ -104,10 +104,10 @@ function ScalesQuiz() {
               />
             )}
             <div className="flex justify-between">
-              <p className="text-left text-gray-500 text-base">
+              <p className="text-left text-white text-base">
                 {currentQuestion.desc[0]}
               </p>
-              <p className="text-right text-gray-500 text-base">
+              <p className="text-right text-white text-base">
                 {currentQuestion.desc[1]}
               </p>
             </div>
