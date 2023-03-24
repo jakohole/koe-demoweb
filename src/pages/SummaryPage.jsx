@@ -8,7 +8,7 @@ function SummaryPage() {
       <div className="flex flex-col items-left ">
         <div className="inline-flex items-start  px-24 pt-26 mt-12 ">
           <img
-            src="https://content.keenprofile.com/wp-content/uploads/2022/02/keenprofile-logo-dark.png"
+            src="https://keenprofile.com/assets/images/keen/keenprofile-logo-white.png"
             className="h-auto max-w-full"
             alt="..."
           />
