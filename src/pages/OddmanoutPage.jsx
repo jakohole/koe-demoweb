@@ -18,7 +18,7 @@ function OddmanoutPage() {
           className="sm:h-14 md:h-18 absolute top-2 left-2 md:top-4 md:left-4 "
         />
       </div>
-      <div className="container mx-auto mt-6 ">
+      <div className="container mx-auto mt-6 h-screen">
         <p className="font-ibm-plex-san-thai text-2xl sm:text-sm lg:text-xl font-bold text-white">
           <p>
             พาร์ท 1.2 คำถามเพื่อวัดมาตรฐานทางด้านศีลธรรม{' '}
@@ -43,7 +43,7 @@ function OddmanoutPage() {
           </button>
         </div>
       </div>
-      <div className="container mx-auto " id="oddmanout-quiz">
+      <div className="container mx-auto pt-10" id="oddmanout-quiz">
         <div className="max-w-4xl mx-auto py-20 lg:py-20">
           <OddmanoutQuiz />
         </div>
