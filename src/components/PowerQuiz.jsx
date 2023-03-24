@@ -87,7 +87,7 @@ function PowerQuiz() {
   }, [navigate]);
 
   return (
-    <div className="md:container px-6 py-8">
+    <div className="container px-6 py-8">
       {questions
         .filter((question) => question.type === 3)
         .map((question, index) => (
@@ -100,7 +100,7 @@ function PowerQuiz() {
                 : 'opacity-50 pointer-events-none'
             }`}
           >
-            <p className="text-base text-left text-white">
+            <p className="text-base text-left text-white sm:text-sm lg:text-xl">
               {question.question}
             </p>
             {question.choices.map((choice, choiceIndex) => (
