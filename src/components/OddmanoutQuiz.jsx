@@ -11,22 +11,29 @@ import { useNavigate } from 'react-router-dom';
 //Create OddmanoutQuiz component
 function OddmanoutQuiz() {
   const navigate = useNavigate();
-  const [selectedChoices, setSelectedChoices] = useState(Array.from({ length: questions.length }, () => []));
+  const [selectedChoices, setSelectedChoices] = useState(
+    Array.from({ length: questions.length }, () => [])
+  );
   const currentQuestionIndex = useMemo(
     () => questions.findIndex((q) => q.type === 2),
     [questions]
   );
-  const [activeQuestionIndex, setActiveQuestionIndex] = useState(currentQuestionIndex);
+  const [activeQuestionIndex, setActiveQuestionIndex] =
+    useState(currentQuestionIndex);
   const questionRefs = useRef([]);
 
   const handleScroll = useCallback(() => {
     const newActiveQuestionIndex = questionRefs.current.findIndex((el) => {
       const { top, bottom } = el.getBoundingClientRect();
-      const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+      const windowHeight =
+        window.innerHeight || document.documentElement.clientHeight;
       return top <= windowHeight / 2 && bottom >= windowHeight / 2;
     });
 
-    if (newActiveQuestionIndex >= 0 && newActiveQuestionIndex !== activeQuestionIndex) {
+    if (
+      newActiveQuestionIndex >= 0 &&
+      newActiveQuestionIndex !== activeQuestionIndex
+    ) {
       setActiveQuestionIndex(newActiveQuestionIndex);
     }
   }, [activeQuestionIndex]);
@@ -42,21 +49,25 @@ function OddmanoutQuiz() {
     setActiveQuestionIndex(currentQuestionIndex);
   }, [currentQuestionIndex]);
 
-  const handleSelectChoice = useCallback((event) => {
-    const questionIndex = parseInt(event.target.name.split('-')[1]);
-    const choiceIndex = parseInt(event.target.value);
-    const updatedChoices = [...selectedChoices];
-    if (selectedChoices[questionIndex].includes(choiceIndex)) {
-      updatedChoices[questionIndex] = selectedChoices[questionIndex].filter(
-        (choice) => choice !== choiceIndex
-      );
-    } else {
-      updatedChoices[questionIndex] = [        ...selectedChoices[questionIndex],
-        choiceIndex,
-      ];
-    }
-    setSelectedChoices(updatedChoices);
-  }, [selectedChoices]);
+  const handleSelectChoice = useCallback(
+    (event) => {
+      const questionIndex = parseInt(event.target.name.split('-')[1]);
+      const choiceIndex = parseInt(event.target.value);
+      const updatedChoices = [...selectedChoices];
+      if (selectedChoices[questionIndex].includes(choiceIndex)) {
+        updatedChoices[questionIndex] = selectedChoices[questionIndex].filter(
+          (choice) => choice !== choiceIndex
+        );
+      } else {
+        updatedChoices[questionIndex] = [
+          ...selectedChoices[questionIndex],
+          choiceIndex,
+        ];
+      }
+      setSelectedChoices(updatedChoices);
+    },
+    [selectedChoices]
+  );
 
   const handleSubmit = useCallback(() => {
     navigate('/power');
@@ -77,11 +88,14 @@ function OddmanoutQuiz() {
                 : 'opacity-50 pointer-events-none'
             }`}
           >
-            <p className="text-base text-left text-white">
+            <p className="text-base text-left text-white sm:text-sm lg:text-xl">
               {question.question}
             </p>
             {question.choices.map((choice, choiceIndex) => (
-              <div key={choiceIndex} className="my-4 flex flex-row text-left text-white">
+              <div
+                key={choiceIndex}
+                className="my-4 flex flex-row text-left text-white sm:text-sm lg:text-xl"
+              >
                 <input
                   type="checkbox"
                   id={`question-${index}-choice-${choiceIndex}`}

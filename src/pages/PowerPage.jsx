@@ -13,7 +13,7 @@ function PowerPage() {
 
   return (
     <div className="w-full top-24 left-0  z-10 ">
-      <div className="container mx-auto mt-6 ">
+      <div className="container mx-auto mt-6 h-screen">
         <div className="flex items-center justify-center">
           <img
             src={KeenProfileLogo}
@@ -45,7 +45,7 @@ function PowerPage() {
           </button>
         </div>
       </div>
-      <div className="md:container mx-auto" id="power-quiz">
+      <div className="container mx-auto pt-12" id="power-quiz">
         <div className="max-w-4xl mx-auto py-24">
           <PowerQuiz />
         </div>
