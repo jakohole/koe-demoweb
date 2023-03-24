@@ -37,7 +37,7 @@ function SpeedTestPage() {
       <div className="flex flex-col items-center justify-center">
         {showTitle && (
           <div className="flex flex-col justify-center px-24 pt-26 mt-6 mb-4 text-center">
-            <p className="font-ibm-plex-san-thai text-2xl font-bold text-white">
+            <p className="font-ibm-plex-san-thai md:text-2xl sm:text-sm lg:text-2xl font-bold text-white">
               พาร์ท 1.1 คำถามเพื่อวัดมาตรฐานทางด้านศีลธรรม{' '}
               <span className="font-gothic text-2xl font-bold text-white">
                 (Moral Temptation)
@@ -53,7 +53,7 @@ function SpeedTestPage() {
         )}
         {showQuiz ? <SpeedQuiz /> : <SpeedTest />}
         {showQuiz ? null : (
-          <div className="py-4">
+          <div className="py-4 text-base sm:text-sm lg:text-xl">
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full"
               onClick={handleStartQuiz}

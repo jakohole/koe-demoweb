@@ -19,7 +19,7 @@ function IntroductionPage() {
           alt="KeenProfile Logo"
           className="sm:h-14 md:h-18  absolute top-2 left-2 md:top-4 md:left-4 "
         />
-        <p className="font-ibm-plex-san-thai text-5xl font-bold text-white mt-6">
+        <p className="font-ibm-plex-san-thai sm:text-xl lg:text-4xl font-bold text-white mt-6">
           แบบประเมินจริยธรรมองค์กร
         </p>
       </div>
@@ -27,7 +27,7 @@ function IntroductionPage() {
         <div className="w-full rounded-lg p-8">
           <Introduction />
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full sm:text-sm lg:text-xl"
             onClick={navigateToNext}
           >
             ถัดไป

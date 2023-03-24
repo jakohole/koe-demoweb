@@ -19,7 +19,7 @@ function OddmanoutPage() {
         />
       </div>
       <div className="container mx-auto mt-6 ">
-        <p className="font-ibm-plex-san-thai text-2xl font-bold text-white">
+        <p className="font-ibm-plex-san-thai text-2xl sm:text-sm lg:text-xl font-bold text-white">
           <p>
             พาร์ท 1.2 คำถามเพื่อวัดมาตรฐานทางด้านศีลธรรม{' '}
             <span className="font-gothic text-2xl font-bold text-white">
@@ -33,7 +33,7 @@ function OddmanoutPage() {
             </span>{' '}
           </p>
         </p>
-        <div className="w-full mx-auto mt-8 mb-6">
+        <div className="w-full mx-auto mt-8 mb-6 text-base sm:text-sm lg:text-xl">
           <Instruction />
           <button
             onClick={scrollToQuiz}
@@ -43,8 +43,8 @@ function OddmanoutPage() {
           </button>
         </div>
       </div>
-      <div className="container mx-auto" id="oddmanout-quiz">
-        <div className="max-w-4xl mx-auto py-20">
+      <div className="container mx-auto " id="oddmanout-quiz">
+        <div className="max-w-4xl mx-auto py-20 lg:py-20">
           <OddmanoutQuiz />
         </div>
       </div>

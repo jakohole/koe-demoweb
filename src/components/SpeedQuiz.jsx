@@ -69,16 +69,16 @@ function SpeedQuiz() {
   const currentQuestion = questions.filter((q) => q.type === 1)[questionNumber];
 
   return (
-    <div className="container items-left px-24 py-10" id="speedquiz">
-      <p className="text-base text-left text-white">
+    <div className="container items-left px-22 py-10" id="speedquiz">
+      <p className="text-left text-white sm:text-sm lg:text-lg text-base">
         {currentQuestion.question}
       </p>
       {currentQuestion && showChoices ? (
-        <div className="mt-2 text-base ">
+        <div className="mt-2">
           <Timer countdown={countdown} />
           {showChoices &&
             currentQuestion.choices.map((choice, index) => (
-              <div key={index} className="flex flex-row  py-4 text-white">
+              <div key={index} className="flex flex-row  py-4 text-white mt-2">
                 <input
                   type="radio"
                   id={`choice-${index}`}

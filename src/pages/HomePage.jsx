@@ -14,7 +14,7 @@ function HomePage() {
   const navigate = useNavigate();
 
   return (
-    <div className="md:container md:mx-auto">
+    <div className="md:container md:mx-auto 2xl:container 2xl:mx-auto">
       <div className="flex flex-col items-center justify-center">
         <div className="inline-flex items-start  px-24 pt-26 mt-12 ">
           <img
@@ -35,7 +35,7 @@ function HomePage() {
         </div>
         {!showIntroduction && (
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full"
+            className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full sm:text-sm lg:text-xl"
             onClick={() => navigate('/introduction')}
           >
             เข้าสู่แบบประเมิน
