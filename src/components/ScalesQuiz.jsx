@@ -90,11 +90,11 @@ function ScalesQuiz() {
   return (
     <div>
       <div className="container items-left px-24 py-10">
-        <p className="text-base text-left text-white">
+        <p className="text-sm lg:text-base text-left text-white">
           {currentQuestion.question}
         </p>
         {currentQuestion && showChoices ? (
-          <div className="mt-2 text-base ">
+          <div className="mt-2 text-sm lg:text-base ">
             {<Timer countdown={countdown} />}
             {showChoices && (
               <TenScalesChoices
@@ -104,10 +104,10 @@ function ScalesQuiz() {
               />
             )}
             <div className="flex justify-between">
-              <p className="text-left text-white text-base">
+              <p className="text-left text-white text-sm lg:text-base">
                 {currentQuestion.desc[0]}
               </p>
-              <p className="text-right text-white text-base">
+              <p className="text-right text-white text-sm lg:text-base">
                 {currentQuestion.desc[1]}
               </p>
             </div>
