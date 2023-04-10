@@ -70,7 +70,7 @@ function SpeedQuiz() {
 
   return (
     <div className="container items-left px-22 py-10" id="speedquiz">
-      <p className="text-left text-white sm:text-sm lg:text-lg text-base">
+      <p className="text-left text-white text-sm lg:text-base">
         {currentQuestion.question}
       </p>
       {currentQuestion && showChoices ? (
