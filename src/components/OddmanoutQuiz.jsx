@@ -88,13 +88,13 @@ function OddmanoutQuiz() {
                 : 'opacity-50 pointer-events-none'
             }`}
           >
-            <p className="text-base text-left text-white sm:text-sm lg:text-xl">
+            <p className="text-base text-left text-white text-sm lg:text-base">
               {question.question}
             </p>
             {question.choices.map((choice, choiceIndex) => (
               <div
                 key={choiceIndex}
-                className="my-4 flex flex-row text-left text-white sm:text-sm lg:text-xl"
+                className="my-4 flex flex-row text-left text-white text-sm lg:text-base"
               >
                 <input
                   type="checkbox"

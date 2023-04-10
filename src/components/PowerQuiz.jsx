@@ -100,7 +100,7 @@ function PowerQuiz() {
                 : 'opacity-50 pointer-events-none'
             }`}
           >
-            <p className="text-base text-left text-white sm:text-sm lg:text-xl">
+            <p className="text-base text-left text-white lg:text-base">
               {question.question}
             </p>
             {question.choices.map((choice, choiceIndex) => (
