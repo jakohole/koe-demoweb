@@ -12,12 +12,12 @@ function IntroductionPage() {
   };
 
   return (
-    <div className="md:container md:mx-auto">
+    <div className="container mx-auto px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-48 ">
       <div className="flex items-center justify-center">
         <img
           src={KeenProfileLogo}
           alt="KeenProfile Logo"
-          className="sm:h-14 md:h-18  absolute top-2 left-2 md:top-4 md:left-4 "
+          className="h-12 sm:h-14 md:h-18 absolute top-2 left-2 md:top-4 md:left-4 "
         />
         <p className="font-ibm-plex-san-thai sm:text-xl lg:text-4xl font-bold text-white mt-6">
           แบบประเมินจริยธรรมองค์กร
