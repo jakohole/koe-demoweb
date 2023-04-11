@@ -7,6 +7,7 @@ import React, {
 } from 'react';
 import questions from '../model/questiondata';
 import { useNavigate } from 'react-router-dom';
+import ProgressBar from './ProgressBar';
 
 function PowerQuiz() {
   const navigate = useNavigate();
@@ -86,6 +87,12 @@ function PowerQuiz() {
     window.scrollTo(0, 0);
   }, [navigate]);
 
+  const type1Questions = questions.filter((q) => q.type === 1).length;
+  const type2Questions = questions.filter((q) => q.type === 2).length;
+  const initialPercentage = ((type1Questions+type2Questions) / questions.length) * 100;
+
+  console.log(type2Questions)
+
   return (
     <div className="container px-6 py-8">
       {questions
@@ -137,6 +144,15 @@ function PowerQuiz() {
         >
           ส่งคำตอบ
         </button>
+      </div>
+      <div className="fixed bottom-0 left-0 right-0 z-50">
+        <ProgressBar
+          currentQuestion={
+            selectedChoices.filter((choice) => choice.length > 0).length
+          }
+          totalQuestions={questions.length}
+          initialPercentage={initialPercentage}
+        />
       </div>
     </div>
   );

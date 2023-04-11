@@ -9,7 +9,7 @@ import questions from '../model/questiondata';
 import { useNavigate } from 'react-router-dom';
 import ProgressBar from './ProgressBar';
 
-//Create OddmanoutQuiz component
+// Create OddmanoutQuiz component
 function OddmanoutQuiz() {
   const navigate = useNavigate();
   const [selectedChoices, setSelectedChoices] = useState(
@@ -75,6 +75,11 @@ function OddmanoutQuiz() {
     window.scrollTo(0, 0);
   }, [navigate]);
 
+  const type1Questions = questions.filter((q) => q.type === 1).length;
+  const type2Questions = questions.filter((q) => q.type === 2).length;
+  const initialPercentage = (type1Questions / questions.length) * 100;
+
+
   return (
     <div className="md:container px-6 py-8">
       {questions
@@ -127,12 +132,13 @@ function OddmanoutQuiz() {
           ส่งคำตอบ
         </button>
       </div>
-      <div className="mt-4">
+      <div className="fixed bottom-0 left-0 right-0 z-50">
         <ProgressBar
           currentQuestion={
-            selectedChoice !== null ? questionNumber + 1 : questionNumber
+            selectedChoices.filter((choice) => choice.length > 0).length
           }
           totalQuestions={questions.length}
+          initialPercentage={initialPercentage}
         />
       </div>
     </div>
