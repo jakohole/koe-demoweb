@@ -4,6 +4,7 @@ import '../styles/App.css';
 import Timer from './Timer';
 import questions from '../model/questiondata';
 import { useNavigate } from 'react-router-dom';
+import ProgressBar from './ProgressBar';
 
 function SpeedQuiz() {
   const navigate = useNavigate();
@@ -120,6 +121,10 @@ function SpeedQuiz() {
           </button>
         </div>
       )}
+      <ProgressBar
+        currentQuestion={currentQuestionIndex + 1}
+        totalQuestions={questions.length}
+      />
     </div>
   );
 }
