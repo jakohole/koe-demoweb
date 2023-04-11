@@ -7,6 +7,7 @@ import React, {
 } from 'react';
 import questions from '../model/questiondata';
 import { useNavigate } from 'react-router-dom';
+import ProgressBar from './ProgressBar';
 
 //Create OddmanoutQuiz component
 function OddmanoutQuiz() {
@@ -125,6 +126,14 @@ function OddmanoutQuiz() {
         >
           ส่งคำตอบ
         </button>
+      </div>
+      <div className="mt-4">
+        <ProgressBar
+          currentQuestion={
+            selectedChoice !== null ? questionNumber + 1 : questionNumber
+          }
+          totalQuestions={questions.length}
+        />
       </div>
     </div>
   );
