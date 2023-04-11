@@ -5,6 +5,7 @@ import Timer from './Timer';
 import questiondata from '../model/questiondata';
 import { useNavigate } from 'react-router-dom';
 import TenScalesChoices from './TenScalesChoices';
+import ProgressBar from './ProgressBar';
 
 function ScalesQuiz() {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ function ScalesQuiz() {
   const currentQuestion = questiondata.filter((q) => q.type === 4)[
     questionNumber
   ];
+  const [currentProgress, setCurrentProgress] = useState(questionNumber);
 
   useEffect(() => {
     // Initialize the lastQuestionIndex state variable
@@ -34,15 +36,15 @@ function ScalesQuiz() {
     setShowNextButton(false);
     setSelectedChoice(null);
     setCountdownStarted(true);
-
-    console.log(currentQuestion);
-    console.log(lastQuestionIndex);
-    console.log(questiondata.length - 1);
   };
 
   const handleSelectChoice = (event) => {
     setSelectedChoice(parseInt(event.target.value));
     setShowNextButton(true);
+    // Update the current progress
+    if (selectedChoice === null) {
+      setCurrentProgress(questionNumber + 1);
+    }
   };
 
   const handleNext = () => {
@@ -52,7 +54,9 @@ function ScalesQuiz() {
     //  currentQuestion.choices[selectedChoice] ===
     //  currentQuestion.choices[currentQuestion.answer];
 
-    console.log(currentQuestion);
+    if (selectedChoice !== null && !countdownStarted) {
+      setTotalAnsweredQuestions(totalAnsweredQuestions + 1);
+    }
     // Move to the next question or end of the quiz
     if (currentQuestion.lastPosition === true) {
       setQuizOver(true);
@@ -86,6 +90,19 @@ function ScalesQuiz() {
     }
     return () => clearInterval(intervalId);
   }, [countdown, countdownStarted, handleNext]);
+
+  const type1Questions = questiondata.filter((q) => q.type === 1).length;
+  const type2Questions = questiondata.filter((q) => q.type === 2).length;
+  const type3Questions = questiondata.filter((q) => q.type === 3).length;
+  const initialPercentage =
+    ((type1Questions + type2Questions + type3Questions) / questiondata.length) *
+    100;
+
+  useEffect(() => {
+    if (selectedChoice !== null) {
+      setCurrentProgress(questionNumber + 1);
+    }
+  }, [selectedChoice, questionNumber]);
 
   return (
     <div>
@@ -140,6 +157,15 @@ function ScalesQuiz() {
             </button>
           </div>
         )}
+        <div className="fixed bottom-0 left-0 right-0 z-50">
+          <ProgressBar
+            currentQuestion={
+              selectedChoice !== null ? questionNumber + 1 : questionNumber
+            }
+            totalQuestions={questiondata.length}
+            initialPercentage={initialPercentage}
+          />
+        </div>
       </div>
     </div>
   );

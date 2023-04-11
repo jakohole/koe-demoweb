@@ -37,17 +37,16 @@ function SpeedTestPage() {
       <div className="flex flex-col items-center justify-center">
         {showTitle && (
           <div className="flex flex-col justify-center px-24 pt-26 mt-6 mb-4 text-center">
-            <p className="font-ibm-plex-san-thai md:text-2xl sm:text-sm lg:text-2xl font-bold text-white">
-              พาร์ท 1.1 คำถามเพื่อวัดมาตรฐานทางด้านศีลธรรม{' '}
-              <span className="font-gothic text-2xl font-bold text-white">
-                (Moral Temptation)
+            <p className="font-ibm-plex-san-thai font-bold text-white">
+              <span className="text-2xl md:text-2xl lg:text-2xl">
+                พาร์ท 1.1 คำถามเพื่อวัดมาตรฐานทางด้านศีลธรรม{' '}
               </span>
-              <p>
+              <span className="font-gothic text-2xl">(Moral Temptation)</span>
+              <br />
+              <span className="md:text-2xl sm:text-sm lg:text-2xl">
                 ในรูปแบบของข้อคำถามใช้ความเร็ว{' '}
-                <span className="font-gothic text-2xl font-bold text-white">
-                  (Speed Test)
-                </span>{' '}
-              </p>
+              </span>
+              <span className="font-gothic text-2xl">(Speed Test)</span>
             </p>
           </div>
         )}

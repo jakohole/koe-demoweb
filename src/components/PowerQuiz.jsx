@@ -89,9 +89,8 @@ function PowerQuiz() {
 
   const type1Questions = questions.filter((q) => q.type === 1).length;
   const type2Questions = questions.filter((q) => q.type === 2).length;
-  const initialPercentage = ((type1Questions+type2Questions) / questions.length) * 100;
-
-  console.log(type2Questions)
+  const initialPercentage =
+    ((type1Questions + type2Questions) / questions.length) * 100;
 
   return (
     <div className="container px-6 py-8">
