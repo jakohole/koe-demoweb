@@ -44,7 +44,7 @@ function OddmanoutPage() {
         </div>
       </div>
       <div className="container mx-auto pt-10" id="oddmanout-quiz">
-        <div className="max-w-4xl mx-auto py-20 lg:py-20">
+        <div className="max-w-4xl mx-auto ">
           <OddmanoutQuiz />
         </div>
       </div>
