@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 
-function TenScalesChoices() {
+function TenScalesChoices({ onChoiceClick }) {
   const [selected, setSelected] = useState(null);
 
   const handleSelect = (index) => {
-    setSelected((prevSelected) => (prevSelected === index ? null : index));
+    setSelected(index);
+    onChoiceClick(index, true);
   };
 
   return (
@@ -31,15 +32,18 @@ function TenScalesChoices() {
               {5 - index}
             </p>
           </div>
-          {/*index === 0 && (
-            <p className="text-left text-gray-500 text-sm">
-              {'การปรับตัว (Adaptation)'}
-            </p>
-          )*/}
+          <input
+            type="radio"
+            name="scale"
+            value={index}
+            checked={selected === index}
+            onChange={() => {}}
+            className="hidden"
+          />
         </div>
       ))}
       <div className="h-full">
-        <div className="flex items-center justify-center flex-1 w-3 h-full  pt-6 pb-8"></div>
+        <div className="flex items-center justify-center flex-1 w-3 h-full pt-6 pb-8"></div>
       </div>
       {[...Array(5)].map((_, index) => (
         <div
@@ -60,11 +64,6 @@ function TenScalesChoices() {
               {index + 1}
             </p>
           </div>
-          {/*index === 4 && (
-            <p className="text-right1 text-gray-500 text-sm">
-              {'ความเข้มงวด (Rigour)'}
-            </p>
-          )*/}
         </div>
       ))}
     </div>

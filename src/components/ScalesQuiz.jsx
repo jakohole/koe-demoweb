@@ -38,25 +38,18 @@ function ScalesQuiz() {
     setCountdownStarted(true);
   };
 
-  const handleSelectChoice = (event) => {
-    setSelectedChoice(parseInt(event.target.value));
+  const handleSelectChoice = (index, isChoiceClicked) => {
+    setSelectedChoice(index);
     setShowNextButton(true);
-    // Update the current progress
-    if (selectedChoice === null) {
-      setCurrentProgress(questionNumber + 1);
+    console.log(questionNumber);
+    console.log(selectedChoice);
+
+    if (isChoiceClicked) {
+      console.log(isChoiceClicked);
     }
   };
 
   const handleNext = () => {
-    // Check if the selected choice is correct
-    //  currentQuestion = questiondata[questionNumber];
-    //const isCorrect =
-    //  currentQuestion.choices[selectedChoice] ===
-    //  currentQuestion.choices[currentQuestion.answer];
-
-    if (selectedChoice !== null && !countdownStarted) {
-      setTotalAnsweredQuestions(totalAnsweredQuestions + 1);
-    }
     // Move to the next question or end of the quiz
     if (currentQuestion.lastPosition === true) {
       setQuizOver(true);
@@ -65,11 +58,12 @@ function ScalesQuiz() {
       setCountdown(20);
       navigate('/lastpage');
     } else {
-      setQuestionNumber(questionNumber + 1);
+      setQuestionNumber(questionNumber+1);
       setShowChoices(false);
       setShowNextButton(false);
       setSelectedChoice(null);
       setCountdownStarted(false);
+      setIsChoiceClicked(false); // Reset isChoiceClicked when moving to the next question
     }
     setCountdown(20);
   };
@@ -77,9 +71,8 @@ function ScalesQuiz() {
     navigate('/lastpage');
   };
 
-  //const [countdown, setCountdown] = useState(20);
-  {
-  }
+ 
+
   useEffect(() => {
     let intervalId;
     if (countdownStarted && countdown > 0) {
@@ -104,6 +97,23 @@ function ScalesQuiz() {
     }
   }, [selectedChoice, questionNumber]);
 
+  const [isChoiceClicked, setIsChoiceClicked] = useState(false);
+
+  const handleChoiceClick = (choice, isChoiceClicked) => {
+    // Do something with the selected choice and isChoiceClicked
+    if (isChoiceClicked !== null) {
+      console.log(isChoiceClicked);
+      console.log(questionNumber);
+      setIsChoiceClicked(isChoiceClicked);
+    }
+  };
+
+  useEffect(() => {
+    if (selectedChoice !== null && isChoiceClicked) {
+      setCurrentProgress(questionNumber + 1);
+    }
+  }, [selectedChoice, questionNumber, isChoiceClicked]); // Add isChoiceClicked to the dependency array
+
   return (
     <div>
       <div className="container items-left px-24 py-10">
@@ -115,9 +125,8 @@ function ScalesQuiz() {
             {<Timer countdown={countdown} />}
             {showChoices && (
               <TenScalesChoices
-                choices={currentQuestion.choices}
                 selectedChoice={selectedChoice}
-                handleSelectChoice={handleSelectChoice}
+                onChoiceClick={handleChoiceClick}
               />
             )}
             <div className="flex justify-between">
@@ -137,7 +146,7 @@ function ScalesQuiz() {
               </button>
             ) : (
               <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full ${!showNextButton && 'hidden'}`"
+                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full ${!showNextButton && 'hidden'}"
                 onClick={handleNext}
               >
                 {currentQuestion.lastPosition === true &&
@@ -160,7 +169,7 @@ function ScalesQuiz() {
         <div className="fixed bottom-0 left-0 right-0 z-50">
           <ProgressBar
             currentQuestion={
-              selectedChoice !== null ? questionNumber + 1 : questionNumber
+              isChoiceClicked ? questionNumber + 1 : questionNumber
             }
             totalQuestions={questiondata.length}
             initialPercentage={initialPercentage}
