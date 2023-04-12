@@ -46,7 +46,7 @@ function PowerPage() {
         </div>
       </div>
       <div className="container mx-auto pt-12" id="power-quiz">
-        <div className="max-w-4xl mx-auto ">
+        <div className="max-w-4xl mx-auto py-10">
           <PowerQuiz />
         </div>
       </div>
