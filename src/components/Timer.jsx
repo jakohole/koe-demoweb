@@ -14,7 +14,7 @@ function Timer() {
 
   return (
     <div
-      className={`${timerClass} text-white font-bold py-2 px-24 mt-4 rounded`}
+      className={`${timerClass} container text-white font-bold py-2 px-22 mt-4 rounded`}
       id="timer"
     >
       <div>เวลาคงเหลือ: {seconds} วินาที</div>

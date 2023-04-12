@@ -71,7 +71,8 @@ function SpeedQuiz() {
   const currentQuestion = questions.filter((q) => q.type === 1)[questionNumber];
 
   return (
-    <div className="container items-left px-22 py-10" id="speedquiz">
+    <div className="container items-left">
+    <div className=" px-28 py-10" id="speedquiz">
       <p className="text-left md:px-10 text-white text-sm lg:text-base">
         {currentQuestion.question}
       </p>
@@ -123,6 +124,7 @@ function SpeedQuiz() {
           initialPercentage={initialPercentage}
         />
       </div>
+    </div>
     </div>
   );
 }

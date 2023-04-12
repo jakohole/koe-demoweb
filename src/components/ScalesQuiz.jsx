@@ -108,21 +108,22 @@ function ScalesQuiz() {
     }
   };
 
-  useEffect(() => {
+   useEffect(() => {
     if (selectedChoice !== null && isChoiceClicked) {
       setCurrentProgress(questionNumber + 1);
     }
   }, [selectedChoice, questionNumber, isChoiceClicked]); // Add isChoiceClicked to the dependency array
 
   return (
-    <div>
-      <div className="container items-left px-24 py-10">
-        <p className="text-sm lg:text-base text-left text-white">
+    <div className="container">
+      <div className=" items-left px-28 py-10">
+        <p className="text-sm lg:text-base text-left text-white px-28">
           {currentQuestion.question}
         </p>
         {currentQuestion && showChoices ? (
           <div className="mt-2 text-sm lg:text-base ">
-            {<Timer countdown={countdown} />}
+            <div className="px-28">{<Timer countdown={countdown} />}</div>
+            <div className="container px-28">
             {showChoices && (
               <TenScalesChoices
                 selectedChoice={selectedChoice}
@@ -137,6 +138,7 @@ function ScalesQuiz() {
                 {currentQuestion.desc[1]}
               </p>
             </div>
+            
             {showNextButton && showNextButton === 'Submit' ? (
               <button
                 className="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 mt-4 rounded-full"
@@ -155,6 +157,7 @@ function ScalesQuiz() {
                   : 'ถัดไป'}
               </button>
             )}
+            </div>
           </div>
         ) : (
           <div>
