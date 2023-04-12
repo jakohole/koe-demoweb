@@ -33,7 +33,7 @@ function OddmanoutPage() {
             </span>{' '}
           </p>
         </p>
-        <div className="w-full mx-auto mt-8 mb-6 text-base sm:text-sm lg:text-xl">
+        <div className="w-full mx-auto mt-8 mb-6 text-base sm:text-sm lg:text-base">
           <Instruction />
           <button
             onClick={scrollToQuiz}

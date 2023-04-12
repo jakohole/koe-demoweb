@@ -27,7 +27,7 @@ function IntroductionPage() {
         <div className="w-full rounded-lg p-8">
           <Introduction />
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full sm:text-sm lg:text-xl"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full sm:text-sm lg:text-base"
             onClick={navigateToNext}
           >
             ถัดไป
