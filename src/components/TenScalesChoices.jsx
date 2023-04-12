@@ -43,7 +43,7 @@ function TenScalesChoices({ onChoiceClick }) {
         </div>
       ))}
       <div className="h-full">
-        <div className="flex items-center justify-center flex-1 w-3 h-full pt-6 pb-8"></div>
+        <div className="flex items-center justify-center flex-1 h-full pt-6 px-2 pb-8"></div>
       </div>
       {[...Array(5)].map((_, index) => (
         <div
