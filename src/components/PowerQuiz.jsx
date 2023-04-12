@@ -100,7 +100,7 @@ function PowerQuiz() {
           <div
             key={index}
             ref={(el) => (questionRefs.current[index] = el)}
-            className={`flex-col mb-28 ${
+            className={`flex-col mb-24 ${
               index === activeQuestionIndex
                 ? ''
                 : 'opacity-50 pointer-events-none'

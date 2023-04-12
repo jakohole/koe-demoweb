@@ -76,7 +76,7 @@ function SpeedQuiz() {
         {currentQuestion.question}
       </p>
       {currentQuestion && showChoices ? (
-        <div className="mt-2">
+        <div className="mt-2 md:px-10">
           <Timer countdown={countdown} />
           {showChoices &&
             currentQuestion.choices.map((choice, index) => (
