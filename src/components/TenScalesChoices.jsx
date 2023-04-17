@@ -9,9 +9,9 @@ function TenScalesChoices({ onChoiceClick }) {
   };
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center ">
       <div
-        className="flex space-x-2 items-start justify-center py-5"
+        className="flex space-x-2 xl:w-full items-start justify-center py-5"
         style={{ maxWidth: 800, height: 120 }}
       >
         {[...Array(5)].map((_, index) => (
@@ -44,7 +44,7 @@ function TenScalesChoices({ onChoiceClick }) {
           </div>
         ))}
         <div className="h-full">
-          <div className="flex items-center justify-center flex-1 h-full pt-6 px-2 pb-8"></div>
+          <div className="flex items-center justify-right flex-1 h-full pt-6 px-2 pb-8"></div>
         </div>
         {[...Array(5)].map((_, index) => (
           <div

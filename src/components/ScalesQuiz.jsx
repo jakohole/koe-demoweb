@@ -58,7 +58,7 @@ function ScalesQuiz() {
       setCountdown(20);
       navigate('/lastpage');
     } else {
-      setQuestionNumber(questionNumber+1);
+      setQuestionNumber(questionNumber + 1);
       setShowChoices(false);
       setShowNextButton(false);
       setSelectedChoice(null);
@@ -70,8 +70,6 @@ function ScalesQuiz() {
   const handleSubmit = () => {
     navigate('/lastpage');
   };
-
- 
 
   useEffect(() => {
     let intervalId;
@@ -108,55 +106,57 @@ function ScalesQuiz() {
     }
   };
 
-   useEffect(() => {
+  useEffect(() => {
     if (selectedChoice !== null && isChoiceClicked) {
       setCurrentProgress(questionNumber + 1);
     }
   }, [selectedChoice, questionNumber, isChoiceClicked]); // Add isChoiceClicked to the dependency array
 
   return (
-    <div className="container">
-      <div className=" items-left px-28 py-10">
+    <div className="container lg:px-22 ">
+      <div className=" items-left px-28 py-10 xl:px-26">
         <p className="text-sm lg:text-base text-left text-white px-28">
           {currentQuestion.question}
         </p>
         {currentQuestion && showChoices ? (
           <div className="mt-2 text-sm lg:text-base ">
-            <div className="px-28">{<Timer countdown={countdown} />}</div>
-            <div className="container px-28">
-            {showChoices && (
-              <TenScalesChoices
-                selectedChoice={selectedChoice}
-                onChoiceClick={handleChoiceClick}
-              />
-            )}
-            <div className="flex justify-between">
-              <p className="text-left text-white text-sm lg:text-base">
-                {currentQuestion.desc[0]}
-              </p>
-              <p className="text-right text-white text-sm lg:text-base">
-                {currentQuestion.desc[1]}
-              </p>
+            <div className="flex justify-center px-28">
+              {<Timer countdown={countdown} />}
             </div>
-            
-            {showNextButton && showNextButton === 'Submit' ? (
-              <button
-                className="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 mt-4 rounded-full"
-                onClick={handleSubmit}
-              >
-                ส่งแบบประเมิน
-              </button>
-            ) : (
-              <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full ${!showNextButton && 'hidden'}"
-                onClick={handleNext}
-              >
-                {currentQuestion.lastPosition === true &&
-                currentQuestion.type === 4
-                  ? 'ส่งแบบประเมิน'
-                  : 'ถัดไป'}
-              </button>
-            )}
+            <div className="container px-28 ">
+              {showChoices && (
+                <TenScalesChoices
+                  selectedChoice={selectedChoice}
+                  onChoiceClick={handleChoiceClick}
+                />
+              )}
+              <div className="flex justify-between">
+                <p className="text-left text-white text-sm lg:text-base">
+                  {currentQuestion.desc[0]}
+                </p>
+                <p className="text-right text-white text-sm lg:text-base">
+                  {currentQuestion.desc[1]}
+                </p>
+              </div>
+
+              {showNextButton && showNextButton === 'Submit' ? (
+                <button
+                  className="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 mt-4 rounded-full"
+                  onClick={handleSubmit}
+                >
+                  ส่งแบบประเมิน
+                </button>
+              ) : (
+                <button
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-4 rounded-full ${!showNextButton && 'hidden'}"
+                  onClick={handleNext}
+                >
+                  {currentQuestion.lastPosition === true &&
+                  currentQuestion.type === 4
+                    ? 'ส่งแบบประเมิน'
+                    : 'ถัดไป'}
+                </button>
+              )}
             </div>
           </div>
         ) : (
